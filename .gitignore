@@ -1,0 +1,9 @@
+# development files
+mix-manifest.json
+package-lock.json
+mix.js.map
+node_modules
+
+# compiled files
+assets/css/*
+assets/js/*
