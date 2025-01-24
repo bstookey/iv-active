@@ -1,0 +1,180 @@
+//**** Footer Styles ****//
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.site-footer {
+  background-color: $neutraldark;
+  border-radius: 40px 40px 0 0;
+  color: $white;
+  padding-top: 40px;
+  font-size: 14px;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 80px;
+  }
+
+  .wp-block-site-logo {
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    margin-bottom: 20px;
+
+    .custom-logo-link {
+      width: 166px;
+      @include aspect-ratio(166, 33);
+      display: block;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  h2,
+  .h2 {
+    font-size: clamp-calc(768px, 1024px, 16px, 20px);
+  }
+
+  .footer-connect {
+    font-size: clamp-calc(768px, 1024px, 14px, 16px);
+    .phone {
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0 20px;
+
+      a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $white;
+        flex: 1 0 100%;
+      }
+      span {
+        border-radius: 100%;
+        background-color: #fff;
+        height: 40px;
+        display: flex;
+        flex: 0 0 40px;
+        color: $aqua;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          max-width: 18px;
+        }
+      }
+    }
+
+    .email {
+      margin: 10px 0;
+
+      a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $white;
+        flex: 1 0 100%;
+
+        &:hover {
+          color: $aqua;
+        }
+      }
+      span {
+        border-radius: 100%;
+        background-color: #fff;
+        height: 40px;
+        display: flex;
+        flex: 0 0 40px;
+        color: $aqua;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          max-width: 22px;
+        }
+      }
+    }
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 20px;
+
+    li {
+      a {
+        color: $white;
+
+        &:hover {
+          color: $aqua;
+        }
+      }
+    }
+  }
+
+  .wp-block-navigation {
+    &__container {
+      text-transform: uppercase;
+      flex-flow: column;
+      align-items: flex-start;
+      gap: 10px;
+
+      a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: clamp-calc(768px, 1024px, 14px, 16px);
+
+        &:hover {
+          color: $aqua;
+        }
+      }
+    }
+  }
+
+  .disclaimer {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+
+  .row {
+    .wp-block-column {
+      margin-bottom: 40px;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+
+.copyright {
+  padding: 10px 0;
+  font-size: 14px;
+
+  .wp-block-navigation {
+    &__container {
+      gap: 0;
+      li {
+        margin-right: 10px;
+        padding-left: 10px;
+        border-left: 1px solid $neutraldark;
+        line-height: 1;
+        a {
+          font-size: 14px;
+
+          &:hover {
+            color: $aqua;
+          }
+        }
+      }
+    }
+  }
+}

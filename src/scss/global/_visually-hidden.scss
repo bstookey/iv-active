@@ -1,0 +1,58 @@
+/***** Visually hidden classes *****/
+
+.screen-reader-text,
+.sr-only,
+.visually-hidden {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &:focus-within {
+    z-index: 9999;
+  }
+
+  a {
+    opacity: 0;
+
+    &:focus {
+      opacity: 1;
+      color: #cc0000;
+    }
+  }
+}
+
+[hidden] {
+  display: none;
+}
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+}
+
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  display: inherit;
+  position: absolute;
+}

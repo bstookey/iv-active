@@ -1,0 +1,7 @@
+//@forward "variables";
+
+@use "variables";
+@use "breakpoints";
+
+@forward "variables"; // Forward everything from variables
+@forward "breakpoints"; // Forward everything from breakpoints

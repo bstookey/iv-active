@@ -1,0 +1,174 @@
+.carousel-wrapper {
+  //border: 1px solid #cc0000;
+  position: relative;
+  @include bs-gutter($gutter, neg);
+
+  .items-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    top: 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background-color: #fff;
+      z-index: 100;
+    }
+
+    .owl-carousel {
+      position: relative;
+
+      .owl-stage {
+        @include flexbox;
+        @include justify-content(center);
+
+        .owl-item {
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            border-right: 1px solid clr(darkmeduimgrey);
+          }
+
+          &:last-child {
+            &:after {
+              display: none;
+            }
+          }
+
+          .item {
+            text-align: left;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0 auto;
+            padding: 0 $gutter;
+            position: relative;
+
+            .item-container {
+              .item-content {
+                .item-image {
+                  @include aspect-ratio(
+                    $aspect-ratio-width,
+                    $aspect-ratio-height
+                  );
+                  position: relative;
+                  background-size: cover;
+                  margin: 0 auto;
+                }
+
+                .post-details {
+                  a.post-link {
+                    text-decoration: none;
+                    color: clr(neutraldark);
+                    display: block;
+                    font-weight: 600;
+                    padding: 8px 0 0;
+                    @include media-breakpoint-up(md) {
+                      padding: 12px 0 0;
+                    }
+
+                    &:hover {
+                      text-decoration: underline;
+                    }
+                  }
+                }
+                .article-tags {
+                  //text-transform: uppercase;
+                  //display: flex;
+                  display: none;
+                  gap: 6px;
+                  align-items: center;
+                  list-style-type: none;
+                  margin: 16px 0 0 0;
+                  padding: 0;
+                  flex-wrap: wrap;
+                  .tag {
+                    display: none;
+                    gap: 6px;
+                    align-items: center;
+                    margin: 0;
+
+                    &:after {
+                      content: "";
+                      width: 4px;
+                      height: 4px;
+                      background-color: clr(neutraldark);
+                      border-radius: 50%;
+                    }
+
+                    &:last-child {
+                      &:after {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .owl-dots {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        button {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 100%;
+          background-color: clr(darkmeduimgrey);
+          border: none;
+          padding: 0;
+
+          &.active {
+            background-color: $coregreen;
+          }
+        }
+      }
+    }
+  }
+
+  .owl-nav {
+    display: none !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    @include flexbox;
+    @include justify-content(space-between);
+    z-index: 2;
+    pointer-events: none;
+
+    button {
+      display: block;
+      width: 30px;
+      height: 60px;
+      position: relative;
+      border: none;
+      background-color: transparent;
+      font-size: 30px;
+      color: clr(darkmeduimgrey);
+      cursor: pointer;
+      pointer-events: all;
+
+      &:hover {
+        color: $mediumblue;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+/*
+Admin Styles
+*/
+
+@use "variables/variables"; // IMPORTANT! Required for theme
+//@forward "variables/mixins/helpers"; // IMPORTANT! Required for mixins
+//@forward "variables/breakpoints/index";
+
+//-----------------------------------------
+// Theme Admin Styles
+//-----------------------------------------
+.editor-styles-wrapper {
+  .wp-block-post-content {
+    background-color: aliceblue;
+
+    .block-editor-block-list__block {
+      max-width: 99%;
+      .wp-block {
+      }
+    }
+  }
+}

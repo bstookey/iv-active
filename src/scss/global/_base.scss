@@ -1,0 +1,18 @@
+// Base
+@use "../variables" as *;
+@use "../mixins" as *;
+
+body {
+  font-size: $global-font-size;
+  background: #fff;
+  margin: 0;
+  font-family: $font-sans;
+  color: $basecolor;
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  &.mobile-menu-open {
+    position: fixed;
+    width: 100%;
+  }
+}

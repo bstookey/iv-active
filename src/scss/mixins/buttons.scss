@@ -1,0 +1,18 @@
+// Buttons Mixin
+@use "../variables" as *;
+@use "helpers" as *;
+
+@mixin button-base-style {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none !important;
+  line-height: 1;
+  @include global-transition();
+}
+
+@mixin cta-button($text-color: $white, $bg-color: $aqua, $border-color: $aqua) {
+  @include button-base-style;
+  color: $text-color;
+  background-color: $bg-color;
+  border-color: $border-color;
+}

@@ -1,0 +1,22 @@
+/*
+ * IV-Active Theme styles
+ *
+ * @package Wordpress
+ * @subpackage IV-Active
+ * @since  1.0
+ *
+*/
+
+@use "sass:map";
+@use "variables" as *;
+@use "mixins" as *;
+
+@use "global";
+@use "layout";
+@use "colors";
+@use "header";
+@use "posts";
+@use "patterns";
+@use "utilities";
+
+@use "footer";

@@ -1,0 +1,45 @@
+// ** Text Utilities ** //
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+ul,
+ol {
+  list-style-position: inside;
+  padding-left: 18px;
+}
+
+.nobreak,
+.nowrap {
+  white-space: nowrap;
+}
+
+.entry-content {
+  ul,
+  ol {
+    list-style-position: outside;
+    margin: 20px 0 20px 8px;
+    li {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+.tableauPlaceholder {
+  margin: 0 auto;
+}
+
+.search-highlight,
+.searchwp-highlight {
+  background-color: $lightbrown;
+}

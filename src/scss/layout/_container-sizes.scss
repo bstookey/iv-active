@@ -1,0 +1,38 @@
+//
+// Make WP specific classes for container sizes
+//
+// $container-sizes: (
+//   container: 1200,
+//   container-xs: 700,
+//   container-sm: 900,
+//   container-lg: 1400,
+// );
+//
+//@import "../variables"; // Included in mixins functions for bs-gutter
+//
+// the .is-style- prefix is required for block style registration.
+
+/***** Theme specific container sizes  *****/
+@use "../variables" as *;
+@use "../mixins" as *;
+
+@each $container, $value in $container-sizes {
+  .is-style-#{"" + $container} {
+    width: 100%;
+    max-width: $value + px;
+    margin: 0 auto;
+    left: auto;
+    right: auto;
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+  .#{"" + $container} {
+    width: 100%;
+    max-width: $value + px;
+    margin: 0 auto;
+    left: auto;
+    right: auto;
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+}

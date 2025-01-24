@@ -1,0 +1,121 @@
+/* Accordion Styles */
+
+.post-accordion-list {
+  //margin-top: 40px;
+  > .post-item {
+    background-color: $white;
+    margin: 0;
+    padding: 0;
+    border-bottom: 3px solid clr(coreblue);
+
+    @include media-breakpoint-up(md) {
+      border-width: 5px;
+    }
+
+    h2 {
+      margin: 0;
+
+      button {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: clr(neutraldark);
+        padding: 12px 0;
+        background-color: transparent;
+        box-shadow: none;
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.8rem;
+        }
+
+        &:after {
+          display: none;
+        }
+
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+
+        svg {
+          fill,
+          circle,
+          path {
+            @include global-transition;
+          }
+        }
+
+        .arrow {
+          color: $corebluewhitetext;
+          margin-left: 32px;
+          svg {
+            fill: $white;
+
+            circle {
+              stroke: $corebluewhitetext;
+            }
+            path {
+              stroke: currentColor;
+            }
+          }
+        }
+
+        &:focus-visible {
+          border: 2px solid $corebluewhitetext;
+        }
+
+        &:focus-visible,
+        &:hover {
+          .arrow {
+            color: $white;
+            svg {
+              fill: $corebluewhitetext;
+
+              circle {
+                stroke: $corebluewhitetext;
+              }
+              path {
+                stroke: currentColor;
+              }
+            }
+          }
+        }
+
+        &[aria-expanded="true"] {
+          background-color: transparent;
+
+          .arrow {
+            svg {
+              path.plus {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .accordion-body {
+      padding: 10px 0 30px;
+    }
+  }
+
+  &.download-list {
+    .accordion-body {
+      ul {
+        display: block;
+        margin: 0;
+        column-count: 2;
+        column-gap: 20px;
+        list-style-type: none;
+
+        @include media-breakpoint-up(sm) {
+          column-gap: 40px;
+          padding: 0;
+        }
+
+        @include media-breakpoint-up(lg) {
+          column-count: 3;
+        }
+      }
+    }
+  }
+}

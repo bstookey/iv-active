@@ -1,0 +1,204 @@
+// ** Responsive Tables ** //
+$breakpoint-alpha: 800px; // adjust to your needs
+figure.resp-table table,
+.resp-table {
+  margin: 0 0 30px 0;
+  min-width: 100%; // adjust to your needs
+  border-collapse: collapse;
+  overflow: hidden;
+
+  thead {
+    display: none;
+    @media (min-width: $breakpoint-alpha) {
+      display: table-header-group;
+    }
+    tr {
+      background-color: $coregreen;
+      color: $basecolor;
+      th {
+        color: $basecolor;
+        .title-wrap {
+          .title {
+            display: block;
+          }
+          em {
+            font-weight: 200;
+          }
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      margin: 0;
+      td {
+        padding: 0;
+        margin: 0;
+        @media (min-width: $breakpoint-alpha) {
+          padding: 12px;
+        }
+        &:before {
+          padding: 10px;
+          background-color: rgba(109, 174, 79, 0.7);
+          font-size: 1.2rem;
+          color: $basecolor;
+        }
+      }
+      &:nth-child(even) {
+        background-color: rgba(226, 231, 234, 0.6);
+        td {
+          &:before {
+            background-color: $coregreen;
+          }
+        }
+      }
+    }
+  }
+
+  td {
+    display: flex;
+    &:before {
+      content: attr(data-th) ": ";
+      font-weight: bold;
+      width: 100%;
+      max-width: 115px;
+      display: inline-block;
+      @media (min-width: $breakpoint-alpha) {
+        display: none;
+      }
+    }
+    span {
+      padding: 10px;
+
+      &.text-center {
+        display: block;
+      }
+    }
+  }
+
+  th,
+  td {
+    @media (min-width: $breakpoint-alpha) {
+      text-align: left;
+      display: table-cell;
+      padding: 15px;
+      &:first-child {
+        text-align: left;
+        //padding-left: 0;
+      }
+      &:last-child {
+        //padding-right: 0;
+      }
+
+      span {
+        padding: 0;
+
+        &.text-center {
+          display: block;
+        }
+
+        a {
+          &:hover {
+            color: $coregreen;
+          }
+        }
+      }
+    }
+  }
+
+  &.staff-list {
+    margin-top: 0;
+    thead {
+      display: none;
+      @media (min-width: $breakpoint-alpha) {
+        display: table-header-group;
+      }
+      tr {
+        background-color: rgba(208, 228, 164, 0.6);
+        color: $basecolor;
+        th {
+          color: $basecolor;
+          select {
+            @include sr-only();
+          }
+          .facetwp-facet {
+            margin: 0;
+            .facetwp-radio {
+              padding-left: 0;
+              background: none;
+              text-decoration: underline;
+              &.checked {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        margin: 0;
+        td {
+          padding: 0;
+          margin: 0;
+          @media (min-width: $breakpoint-alpha) {
+            padding: 12px 30px;
+          }
+          &:before {
+            padding: 10px;
+            background-color: rgba(208, 228, 164, 0.4);
+            font-size: 1.2rem;
+            color: $basecolor;
+          }
+        }
+        &:nth-child(even) {
+          background-color: rgba(226, 231, 234, 0.6);
+          td {
+            &:before {
+              background-color: rgba(208, 228, 164, 0.6);
+            }
+          }
+        }
+      }
+    }
+
+    td {
+      display: flex;
+      &:before {
+        content: attr(data-th) ": ";
+        font-weight: bold;
+        width: 100%;
+        max-width: 115px;
+        display: inline-block;
+        @media (min-width: $breakpoint-alpha) {
+          display: none;
+        }
+      }
+      span {
+        padding: 10px;
+      }
+    }
+
+    th,
+    td {
+      @media (min-width: $breakpoint-alpha) {
+        text-align: left;
+        display: table-cell;
+        padding: 15px 30px;
+        &:first-child {
+          text-align: left;
+          //padding-left: 0;
+        }
+        &:last-child {
+          //padding-right: 0;
+        }
+
+        span {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

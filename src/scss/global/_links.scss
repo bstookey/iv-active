@@ -1,0 +1,30 @@
+//--------------------------------------------------------------
+/* Global Link Styles */
+//--------------------------------------------------------------
+
+@use "../variables" as *;
+@use "../mixins" as *;
+
+a {
+  color: $color-link;
+  opacity: 1;
+  text-decoration: underline;
+  @include global-transition();
+
+  &:visited {
+    color: $color-link-visited;
+  }
+
+  &:hover,
+  &:active {
+    color: $color-link-hover;
+  }
+
+  &:focus {
+    color: $color-link-focus;
+  }
+
+  &.more-link {
+    white-space: nowrap;
+  }
+}

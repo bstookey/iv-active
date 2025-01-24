@@ -1,0 +1,164 @@
+@use "sass:map";
+@use "../variables" as *;
+
+// Helper Mixins
+
+// Turn hex to rgba()
+@mixin rgba($color, $alpha) {
+  $rgba: rgba(
+    color.red($color),
+    color.green($color),
+    color.blue($color),
+    $alpha
+  );
+  $argb: argb($rgba);
+  background-color: $color;
+  background-color: $rgba;
+  filter: #{"progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$argb}, endColorstr=#{$argb})"};
+  -ms-filter: #{"progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$argb}, endColorstr=#{$argb})"};
+}
+
+// Gutter mixin for parent negative margin and child padding
+@mixin bs-gutter($gutter, $sp: pos) {
+  @if $sp == neg {
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+  }
+
+  @if $sp == pos {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+}
+
+@mixin global-transition($trans_args: $transition) {
+  -webkit-transition: $trans_args;
+  -moz-transition: $trans_args;
+  -ms-transition: $trans_args;
+  -o-transition: $trans_args;
+  transition: $trans_args;
+}
+
+@mixin aspect-ratio($width: 1, $height: 1) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: " ";
+    width: 100%;
+    padding-bottom: calc(($height / $width) * 100%);
+  }
+}
+
+@mixin linear-gradient($deg: 180deg, $start: $black, $end: transparent) {
+  background-image: -webkit-linear-gradient($deg, $start 0%, $end 100%);
+  background-image: -moz-linear-gradient($deg, $start 0%, $end 100%);
+  background-image: -o-linear-gradient($deg, $start 0%, $end 100%);
+  background-image: -ms-linear-gradient($deg, $start 0%, $end 100%);
+  background: linear-gradient($deg, $start 0%, $end 100%);
+}
+
+@mixin box-shadow(
+  $horiz: 0px,
+  $vert: 3px,
+  $blur: 11px,
+  $spread: 0px,
+  $color: rgba(0, 0, 0, 0.25) !important
+) {
+  -webkit-box-shadow: $horiz $vert $blur $spread $color;
+  -moz-box-shadow: $horiz $vert $blur $spread $color;
+  box-shadow: $horiz $vert $blur $spread $color;
+}
+
+@mixin carat($direction, $size: 0.375rem, $color: #ccc) {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  @if ($direction == "up") {
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+  } @else if ($direction == "down") {
+    border-top: $size solid $color;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+  } @else if ($direction == "left") {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if ($direction == "right") {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+@mixin clearfix() {
+  &:after,
+  &:before {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+@mixin sr-only() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@function clamp-calc(
+  $min-width,
+  $max-width,
+  $size-at-min-width,
+  $size-at-max-width
+) {
+  $slope: calc(
+    ($size-at-max-width - $size-at-min-width) / ($max-width - $min-width)
+  );
+  $y-axis-intersection: -1 * $min-width * $slope + $size-at-min-width;
+  $return-value: clamp(
+    #{$size-at-min-width},
+    #{$y-axis-intersection} + #{$slope} * 100vw,
+    #{$size-at-max-width}
+  );
+  @return $return-value;
+}
+
+@function fs($size) {
+  @return math.div($size, 10) + rem;
+}
+
+@function clr($color) {
+  @return map.get($colors, $color);
+}
+
+@function container($container, $unit: px) {
+  // Check if the container exists in the map
+  $size: map.get($container-sizes, $container);
+
+  // If container exists, return the size with the specified unit
+  @if $size {
+    @return $size + $unit;
+  } @else {
+    @warn "Container size '#{$container}' not found in $container-sizes.";
+    @return null;
+  }
+}

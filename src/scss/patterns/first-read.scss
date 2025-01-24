@@ -1,0 +1,57 @@
+//**** First Read ****//
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.wp-block-cover {
+  &.first-read {
+    padding-top: 120px !important;
+    text-align: center;
+    border-radius: 0 0 40px 40px;
+
+    @include media-breakpoint-down(md) {
+      .wp-block-buttons {
+        justify-content: center;
+        margin: 40px auto;
+
+        .wp-block-button {
+          &__link {
+            min-width: 200px;
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 200px !important;
+      text-align: left;
+    }
+
+    &.default {
+      text-align: center;
+    }
+
+    .yoast-breadcrumbs {
+      text-transform: uppercase;
+      font-family: "Montserrat", sans serif;
+      color: $aqua;
+      text-align: center;
+
+      .breadcrumb-separator {
+        display: inline-block;
+        color: $white;
+        font-size: 1.3rem;
+        margin: 0 10px;
+      }
+      a {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+
+    .wp-block-image {
+      img {
+        border-radius: 22px;
+      }
+    }
+  }
+}

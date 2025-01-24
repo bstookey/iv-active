@@ -1,0 +1,28 @@
+// Wp Gutenburg overrides
+
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.wp-block-columns {
+  &.row {
+    flex-wrap: wrap !important;
+    gap: 0;
+    @include bs-gutter($gutter, neg);
+    > *,
+    .wp-block-column {
+      flex-basis: unset !important;
+      @include bs-gutter($gutter, pos);
+    }
+  }
+  &:not(.row) {
+    @include bs-gutter($gutter, neg);
+
+    .wp-block-column {
+      @include bs-gutter($gutter, pos);
+    }
+  }
+}
+
+.wp-block-heading {
+  text-align: inherit;
+}

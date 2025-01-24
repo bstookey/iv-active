@@ -1,0 +1,45 @@
+/**** Connect ****/
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.connect-wrapper {
+  @include global-transition();
+  height: 51px;
+  max-height: 100px;
+  overflow: hidden;
+  background-color: rgba(65, 67, 69, 0.2);
+  display: flex;
+  align-items: center;
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+  }
+
+  .container {
+    .header-connect {
+      font-size: 1.4rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      color: $white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 24px;
+
+      a {
+        color: $white;
+        text-decoration: none;
+        svg {
+          color: $aqua;
+        }
+        &:hover {
+          color: $aqua;
+        }
+      }
+    }
+  }
+  .headerReady & {
+    max-height: 0;
+  }
+}

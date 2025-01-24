@@ -1,0 +1,34 @@
+//--------------------------------------------------------------
+/* Alignments */
+//--------------------------------------------------------------
+
+// Left Align
+.alignleft {
+  margin: 0 $gutter 0 0;
+  display: block;
+  float: left;
+} // .alignleft
+
+// Right Align
+.alignright {
+  margin: 0 0 0 $gutter;
+  display: block;
+  float: right;
+} // .alignright
+
+// Center Align
+.aligncenter {
+  margin: 0 auto;
+  display: block;
+} // .aligncenter
+
+// Full-width Gutenberg alignment.
+.alignfull:not(.wp-block-image) {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+} // .alignfull
