@@ -144,6 +144,23 @@ function iv_active_acf_init()
         //'inserter' => false, // Prevents block from appearing in the block inserter.
       )),
     ));
+
+    // Image Carousel Block
+    acf_register_block_type(array(
+      'name'      => 'image-carousel-block',
+      'title'      => __('Image Carousel'),
+      'description' => esc_html__('Display a block in the footer to display copyright date and text', 'iv-active'),
+      'render_template'  => $acf_block_path . 'footer-copyright-block.php',
+      'category'    => $category_default,
+      'icon'      => 'format-image',
+      'keywords'    => array('copyright', 'footer'),
+      'align' => 'full',
+      'mode'      => $mode_default,
+      'supports' => array_merge($supports, array(
+        'align' => true,
+        //'inserter' => false, // Prevents block from appearing in the block inserter.
+      )),
+    ));
   }
 
   /** 
