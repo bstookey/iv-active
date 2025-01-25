@@ -44,6 +44,13 @@ if (function_exists('register_block_style')) {
     register_block_style(
         'core/group',
         array(
+            'name'         => 'container-md',
+            'label'        => __('MD (1100)', THEME_DOMAIN),
+        ),
+    );
+    register_block_style(
+        'core/group',
+        array(
             'name'         => 'container-lg',
             'label'        => __('LG (1920)', THEME_DOMAIN),
         )

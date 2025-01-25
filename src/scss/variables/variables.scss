@@ -9,6 +9,8 @@ $image-path: "../images/";
 $icon-path: "../images/icons/";
 $web-font-path: "../webfonts/";
 
+$global-radius: 22px;
+
 // global element padding to match the theme
 $gutter: 30px;
 $grid-gutter-width: calc($gutter * 2);
@@ -41,7 +43,7 @@ $container-sizes: (
   container: 1260,
   container-xs: 700,
   container-sm: 900,
-  container-md: 1260,
+  container-md: 1160,
   container-lg: 1920,
 );
 
@@ -215,7 +217,7 @@ $glassdoor: #0caa41;
 $color-link: $aqua;
 
 /// Visited Links.
-$color-link-visited: $aqua;
+$color-link-visited: $neutraldark;
 
 /// Hovered Links.
 $color-link-hover: $neutraldark;

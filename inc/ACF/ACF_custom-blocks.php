@@ -161,6 +161,21 @@ function iv_active_acf_init()
         //'inserter' => false, // Prevents block from appearing in the block inserter.
       )),
     ));
+
+    // Related Posts
+    acf_register_block_type(array(
+      'name'      => 'related-posts',
+      'title'      => __('Related Posts'),
+      'description' => esc_html__('Selected posts displayed in a block grid with ', 'iv-active'),
+      //'render_template'  => $acf_block_path . 'related-posts.php',
+      'render_callback' => 'render_related_posts',
+      'category'    => 'cmap-blocks',
+      'icon'      => 'table-col-before',
+      'keywords'    => array('related', 'post', 'blog', 'similar'),
+      'align' => 'full',
+      'mode'      => $mode_default,
+      'supports' => array_merge($supports, array('align' => false)),
+    ));
   }
 
   /** 
@@ -170,7 +185,6 @@ function iv_active_acf_init()
   add_filter('acf/fields/post_object/query', 'acf_fields_post_object_query', 10, 3);
   function acf_fields_post_object_query($args, $field, $post_id)
   {
-
     $args['post_status'] = 'publish';
     return $args;
   }
@@ -199,6 +213,19 @@ function iv_active_add_block_categories($categories, $post)
 }
 add_filter('block_categories_all', 'iv_active_add_block_categories', 10, 2);
 
+// Related Posts callback
+function render_related_posts($block)
+{
+  // Gather data specific to this block
+  $block_data = [
+    'related_title'   => get_field('related_title', get_the_ID()),
+    'related_posts' => get_field('related_posts', get_the_ID()),
+  ];
+
+  // Include the shared template
+  include get_template_directory() . '/template-parts/acf-custom-blocks/block-related-posts.php';
+}
+
 
 /**
  * Our callback function – this looks for the block based on its given name.
@@ -218,10 +245,10 @@ function iv_active_acf_block_registration_callback($block)
   $end_date   = isset($block['data']['other_options_end_date']) ? $block['data']['other_options_end_date'] : '';
 
   // If the block has expired, then bail! But only on the frontend, so we can still see and edit the block in the backend.
-  if (!is_admin() && iv_active_has_block_expired(
+  if (! is_admin() && _s_has_block_expired(
     array(
-      'start_date' => strtotime($start_date, true),
-      'end_date'   => strtotime($end_date, true),
+      'start_date' => strtotime($block['data']['other_options_start_date'], true),
+      'end_date'   => strtotime($block['data']['other_options_end_date'], true),
     )
   )) {
     return;
@@ -230,41 +257,9 @@ function iv_active_acf_block_registration_callback($block)
   iv_active_display_expired_block_message();
 
   // Include our template part.
-  if (file_exists(get_theme_file_path('/template-parts/content-blocks/block-' . $block_slug . '.php'))) {
-    include get_theme_file_path('/template-parts/content-blocks/block-' . $block_slug . '.php');
+  if (file_exists(get_theme_file_path('/template-parts/acf-custom-blocks/block-' . $block_slug . '.php'))) {
+    include get_theme_file_path('/template-parts/acf-custom-blocks/block-' . $block_slug . '.php');
   }
-}
-
-/**
- * Enqueues a stylesheet for backend block styles.
- *
- * @return void Bail if we're not in the dashboard.
- */
-function iv_active_acf_enqueue_backend_block_styles()
-{
-
-  if (!is_admin()) {
-    return;
-  }
-
-  // Enqueue styles here, eventually. And scripts. Need to look at a good way of enqueuing things smartly on the backend without having to enqueue the whole of project.js, for instance.
-  wp_enqueue_style('iv-active-gutenberg-blocks', get_template_directory_uri() . '/assets/css/gutenberg-blocks-style.css', array(), '1.0.0');
-}
-
-/**
- * Returns the alignment set for a content block.
- *
- * @param array $block The block settings.
- * @return string The class, if one is set.
- */
-function iv_active_get_block_alignment($block)
-{
-
-  if (!$block) {
-    return;
-  }
-
-  return !empty($block['align']) ? ' align' . esc_attr($block['align']) : 'alignwide';
 }
 
 /**
@@ -328,6 +323,22 @@ function iv_active_display_expired_block_message()
     <span class="block-expired-text"><?php esc_html_e('Your block has expired. Please change or remove the Start and End dates under Other Options to display your block on the frontend.', 'iv_active'); ?></span>
   </div>
 <?php
+}
+
+/**
+ * Returns the alignment set for a content block.
+ *
+ * @param array $block The block settings.
+ * @return string The class, if one is set.
+ */
+function iv_active_get_block_alignment($block)
+{
+
+  if (!$block) {
+    return;
+  }
+
+  return !empty($block['align']) ? ' align' . esc_attr($block['align']) : 'alignwide';
 }
 
 /**

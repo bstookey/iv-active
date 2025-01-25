@@ -14,7 +14,7 @@
 
 return array(
     'title'      => __('Checkmark List', 'iv-active'),
-    'description' => __('A cover block with two columns.', 'iv-active'),
+    'description' => __('A list with a checkmark before.', 'iv-active'),
     'categories' => array('theme_patterns'),
     'content'    => '<!-- wp:list {"metadata":{"name":"Checkmark List"},"className":"checkmark-list"} -->
 <ul class="wp-block-list checkmark-list"><!-- wp:list-item -->

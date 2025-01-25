@@ -16,8 +16,8 @@
         <div class="phone ">Contact Us: <?php the_field('phone_number', 'option'); ?></div>
         <div class="email"><a href="<?php the_field('email_address', 'option'); ?>" class="href"><?php print_svg([
                                                                                                         'icon' => 'envelope',
-                                                                                                        'width'  => '34',
-                                                                                                        'height' => '34'
-                                                                                                    ]); ?><?php the_field('email_address', 'option'); ?></a></div>
+                                                                                                        'width'  => '26',
+                                                                                                        'height' => '26'
+                                                                                                    ]); ?>&nbsp;<?php the_field('email_address', 'option'); ?></a></div>
     </div>
 </div>

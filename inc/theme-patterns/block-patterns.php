@@ -37,6 +37,7 @@ function theme_register_block_patterns()
 		'cover-2c',
 		'cover-page',
 		'list-checkmark',
+		'list-checkmark-circle',
 		'content-post'
 	);
 

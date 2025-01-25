@@ -12,6 +12,10 @@
     .wp-block-column {
       flex-basis: unset !important;
       @include bs-gutter($gutter, pos);
+
+      &.is-vertically-aligned-center {
+        width: min-content;
+      }
     }
   }
   &:not(.row) {

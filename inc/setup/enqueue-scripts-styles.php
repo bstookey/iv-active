@@ -6,7 +6,7 @@
  * @package Wordpress
  */
 
-define('IV_ACTIVE_THEME_VERSION', '1.0.3');
+define('IV_ACTIVE_THEME_VERSION', '1.0.4');
 
 // Enqueue Styles
 function iv_active_enqueue_styles()
@@ -21,7 +21,7 @@ add_action('wp_enqueue_scripts', 'iv_active_enqueue_styles', 100);
 function admin_editor_assets()
 {
 	// Load the theme styles within Gutenberg.
-	if (!is_admin()) {
+	if (is_admin()) {
 		wp_enqueue_style('admin-editor-styles', get_stylesheet_directory_uri() . '/assets/css/admin-style.css', array(), IV_ACTIVE_THEME_VERSION, false);
 	}
 }

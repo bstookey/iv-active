@@ -24,7 +24,7 @@ function setup()
 
 	// Site Featured Image support.
 	add_theme_support('post-thumbnails');
-	//add_image_size('key-visual', 2560, 460, false);
+	add_image_size('post-thumbnail', 230, 230, false);
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support('automatic-feed-links');

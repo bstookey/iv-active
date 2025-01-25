@@ -6,49 +6,7 @@
     "color": {
       "defaultDuotone": false,
       "defaultGradients": false,
-      "defaultPalette": false,
-      "palette": [
-        {
-          "color": "#FFFFFF",
-          "name": "White",
-          "slug": "white"
-        },
-        {
-          "color": "#000000",
-          "name": "Black",
-          "slug": "black"
-        },
-        {
-          "color": "#10ddd6",
-          "name": "Aqua",
-          "slug": "aqua"
-        },
-        {
-          "color": "#d3f9f7",
-          "name": "Aqua Light",
-          "slug": "aqualight"
-        },
-        {
-          "color": "#292828",
-          "name": "Dark Grey",
-          "slug": "darkgrey"
-        },
-        {
-          "color": "#939393",
-          "name": "Meduim Grey",
-          "slug": "mediumgrey"
-        },
-        {
-          "color": "#efeef5",
-          "name": "Light Grey",
-          "slug": "lightgrey"
-        },
-        {
-          "color": "#f8f1f3",
-          "name": "Light Pink",
-          "slug": "lightpink"
-        }
-      ]
+      "defaultPalette": false
     },
     "layout": {
       "contentSize": "1200px",
