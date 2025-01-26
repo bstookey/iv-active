@@ -86,20 +86,20 @@
         },
         {
           "fluid": {
-            "max": "2rem",
-            "min": "1.75rem"
+            "max": "2.2rem",
+            "min": "1.8rem"
           },
           "name": "Extra Large",
-          "size": "1.75rem",
+          "size": "2.2rem",
           "slug": "x-large"
         },
         {
           "fluid": {
-            "max": "3rem",
-            "min": "2.15rem"
+            "max": "6rem",
+            "min": "4rem"
           },
           "name": "Extra Extra Large",
-          "size": "2.15rem",
+          "size": "6rem",
           "slug": "xx-large"
         }
       ],
@@ -222,7 +222,7 @@
       "fontFamily": "var:preset|font-family|open-sans",
       "fontSize": "var:preset|font-size|large",
       "fontWeight": "400",
-      "lineHeight": "1.6"
+      "lineHeight": "1.5"
     },
     "blocks": {
       "core/avatar": {
