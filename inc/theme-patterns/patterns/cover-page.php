@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Title: CTA Cover Block
- * Slug: iv-active/cta-cover-block
+ * Title: First Read Default
+ * Slug: iv-active/cover-page
  * Categories: IV-Active Patterns
  * Block Types: core/template-part/cover
  * Description: Basic Cover for pages, with breadvrumb.
@@ -13,25 +13,18 @@
  */
 
 return array(
-    'title'      => __('CTA Cover Block', 'iv-active'),
-    'name   =>'         => __('cta-cover-block', 'iv-active'),
-    'description' => __('A cover block with title, text,  and button.', 'iv-active'),
+    'title'      => __('First Read Page', 'iv-active'),
+    'description' => __('A cover block with title and breadcrumb.', 'iv-active'),
     'categories' => array('theme_patterns'),
-    'content'    => '<!-- wp:group {"metadata":{"name":"CTA Cover Block"},"className":"iv-cta-block","layout":{"type":"constrained"}} -->
-<div class="wp-block-group iv-cta-block"><!-- wp:cover {"url":"http://localhost:8888/iv-active/wp-content/uploads/Cta-bg9-2880w.webp","id":445,"dimRatio":0,"isUserOverlayColor":true,"metadata":{"name":"CTA BAckground"},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-445" alt="" src="http://localhost:8888/iv-active/wp-content/uploads/Cta-bg9-2880w.webp" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center"} -->
-<h2 class="wp-block-heading has-text-align-center">Ready to experience the transformative benefits of IV therapy?</h2>
-<!-- /wp:heading -->
+    'content'    => '<!-- wp:cover {"url":"http://localhost:8888/iv-active/wp-content/uploads/bg59-2880w.webp","id":251,"dimRatio":0,"isUserOverlayColor":true,"focalPoint":{"x":0.5,"y":0.5},"contentPosition":"center center","metadata":{"categories":["theme_patterns"],"patternName":"iv-active/cover-page","name":"First Read Default"},"align":"full","className":"first-read default","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0"}},"color":[]}} -->
+<div class="wp-block-cover alignfull first-read default" style="margin-top:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-251" alt="" src="http://localhost:8888/iv-active/wp-content/uploads/bg59-2880w.webp" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%"/><div class="wp-block-cover__inner-container"><!-- wp:group {"className":"is-style-container","style":{"spacing":{"blockGap":"48px"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group is-style-container"><!-- wp:post-title {"textAlign":"center","level":1,"isPostTitleVisible":false} /-->
 
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Book your appointment today and take the first step towards a healthier, more vibrant you!</p>
-<!-- /wp:paragraph -->
+<!-- wp:yoast-seo/breadcrumbs /--></div>
+<!-- /wp:group -->
 
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons"><!-- wp:button {"textAlign":"center"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-text-align-center wp-element-button">Book Now</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div></div>
-<!-- /wp:cover --></div>
-<!-- /wp:group -->',
+<!-- wp:spacer {"height":"72px"} -->
+<div style="height:72px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div></div>
+<!-- /wp:cover -->',
 );

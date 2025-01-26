@@ -37,6 +37,19 @@ mix.webpackConfig({
         test: /\.svg$/,
         use: "svg-transform-loader",
       },
+      {
+        test: /\.js$/, // Target JavaScript files
+        exclude: /node_modules/, // Exclude node_modules
+        use: {
+          loader: "babel-loader", // Use Babel loader
+          options: {
+            presets: [
+              "@babel/preset-env", // For modern JavaScript
+              "@babel/preset-react", // For JSX support
+            ],
+          },
+        },
+      },
     ],
   },
   plugins: [
@@ -101,6 +114,7 @@ if (cookieJs) {
 mix
   .copy("src/images", "assets/images")
   .scripts("src/js/apps/", jsPath + "apps.js")
+  .js("src/js/editor/buttons.js", jsPath + "editor.js")
   .js(["src/js/iv-active.js"], jsPath + "iv-active.js")
   .sass("src/scss/iv-active.scss", cssPath, {
     implementation: require("sass"),

@@ -2,27 +2,44 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 
-.wp-block-button:not(.is-style-outline) {
-  .wp-block-button__link {
-    @include cta-button($white, $aqua, $aqua);
+.wp-block-buttons {
+  .wp-block-button:not(.is-style-outline) {
+    .wp-block-button__link:not(.has-background) {
+      // this is the default button
+      @include cta-button($white, $aqua, $aqua);
 
-    &:focus-visible,
-    &:hover {
-      @include cta-button($aqua, $white, $white);
+      &:focus-visible,
+      &:hover {
+        @include cta-button($white, $neutraldark, $neutraldark);
+      }
     }
   }
-}
 
-.wp-block-button {
-  &__link {
-    line-height: 1;
+  .wp-block-button {
+    &__link {
+      line-height: 1;
+    }
+    &.is-style-outline {
+      &:hover {
+        .wp-block-button__link {
+          // this is the default outline button
+          background-color: $aqua;
+          border-color: $aqua;
+          color: $white;
+        }
+      }
+    }
   }
-  &.is-style-outline {
-    &:hover {
+
+  &.on-dark-background {
+    .wp-block-button:not(.is-style-outline) {
       .wp-block-button__link {
-        background-color: $aqua;
-        border-color: $aqua;
-        color: $white;
+        @include cta-button($white, $aqua, $aqua);
+
+        &:focus-visible,
+        &:hover {
+          @include cta-button($aqua, $white, $white);
+        }
       }
     }
   }
@@ -53,12 +70,17 @@
             color: $white !important;
           }
         }
+        @if "#{$color}" == "neutraldark" {
+          &:hover {
+            color: $white !important;
+          }
+        }
       }
     }
-    &.is-style-fill {
-      .has-#{"" + $color}-background-color {
+    .has-background {
+      &.has-#{"" + $color}-background-color {
         @if "#{$color}" == "white" {
-          color: $neutraldark;
+          color: $neutraldark !important;
 
           &:hover {
             color: $aqua !important;
@@ -66,8 +88,15 @@
         }
         @if "#{$color}" == "aqua" {
           &:hover {
-            background-color: $white !important;
+            background-color: $neutraldark !important;
             color: $value !important;
+          }
+        }
+
+        @if "#{$color}" == "neutraldark" {
+          &:hover {
+            background-color: $aqua !important;
+            color: $white !important;
           }
         }
       }

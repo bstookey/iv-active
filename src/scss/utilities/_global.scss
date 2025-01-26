@@ -1,0 +1,8 @@
+/***** Global classes *****/
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.rounded {
+  border-radius: $global-radius !important;
+  overflow: hidden;
+}

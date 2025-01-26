@@ -36,6 +36,8 @@ function theme_register_block_patterns()
 		'bootstrap-50-50',
 		'cover-2c',
 		'cover-page',
+		'cover-cta-block',
+		'cover-form-block',
 		'list-checkmark',
 		'list-checkmark-circle',
 		'content-post'

@@ -9,7 +9,7 @@
       "defaultPalette": false
     },
     "layout": {
-      "contentSize": "1200px",
+      "contentSize": "1260px",
       "wideSize": "1340px"
     },
     "spacing": {
@@ -688,7 +688,7 @@
           "fontFamily": "var:preset|font-family|montserrat",
           "fontSize": "clamp(2.2rem, 5vw, 3.2rem)",
           "lineHeight": "1.2",
-          "fontWeight": "700"
+          "fontWeight": "900"
         }
       },
       "h4": {

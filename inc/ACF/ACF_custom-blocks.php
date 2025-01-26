@@ -147,13 +147,13 @@ function iv_active_acf_init()
 
     // Image Carousel Block
     acf_register_block_type(array(
-      'name'      => 'image-carousel-block',
-      'title'      => __('Image Carousel'),
-      'description' => esc_html__('Display a block in the footer to display copyright date and text', 'iv-active'),
-      'render_template'  => $acf_block_path . 'footer-copyright-block.php',
+      'name'      => 'iv-carousel-block',
+      'title'      => __('IV Carousel'),
+      'description' => esc_html__('Display a block for varius types of carousels', 'iv-active'),
+      'render_template'  => $acf_block_path . 'carousel-multi-block.php',
       'category'    => $category_default,
-      'icon'      => 'format-image',
-      'keywords'    => array('copyright', 'footer'),
+      'icon'      => 'dashicons-images-alt',
+      'keywords'    => array('carousel', 'gallery', 'step', 'testimonial'),
       'align' => 'full',
       'mode'      => $mode_default,
       'supports' => array_merge($supports, array(

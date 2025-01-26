@@ -38,7 +38,7 @@ if (function_exists('register_block_style')) {
         'core/group',
         array(
             'name'         => 'container-sm',
-            'label'        => __('SM (900)', THEME_DOMAIN),
+            'label'        => __('SM (960)', THEME_DOMAIN),
         ),
     );
     register_block_style(

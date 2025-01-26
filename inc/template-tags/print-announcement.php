@@ -16,9 +16,10 @@ function display_announcement_text()
     $announcement_show = get_theme_mod('iv_active_announcement_checkbox');
     $announcement_text = get_theme_mod('iv_active_announcement_text'); //?: cust_theme_option('alertbar_copy');
     $announcement_name = get_theme_mod('iv_active_cookie_name'); //?: cust_theme_option('alertbar_id');
-    $announcement_duration = get_theme_mod('iv_active_cookie_duration');
+    $announcement_duration = !empty(get_theme_mod('iv_active_cookie_duration')) ? get_theme_mod('iv_active_cookie_duration') : 7;
     $announcement_link_text =  get_theme_mod('iv_active_link_type_text');  //?: cust_theme_option('alertbar_cookie_time');
     $selected_page_url = get_the_permalink(get_theme_mod('theme_announcement_selected_page_id')); //?: cust_theme_option('alertbar_link') ;
+    $selected_color = get_theme_mod('iv_active_announcement_color', 'lightpink'); // Default to the first color if not set
     $type =  get_theme_mod('iv_active_link_type');
 
     $announce_link = '';
@@ -38,13 +39,17 @@ function display_announcement_text()
         return false;
     } ?>
 
-    <div id="announcement-banner" class="announcement-banner" data-id="<?= $announcement_name ?>" data-days="<?= $announcement_duration ?>">
+    <div id="announcement-banner" class="announcement-banner has-<?= $selected_color ?>-background-color" data-id="<?= $announcement_name ?>" data-days="<?= $announcement_duration ?>">
         <div class="container">
             <div class="announcement">
                 <?php printf('%s', $announcement_text); ?>
                 <?= $announce_link ?>
             </div>
-            <a href="javascript:void(0);" id="banner-accept" class="accept"><span class="fa fa-times"></span><span class="sr-only">Accept Cookies and close banner </span></a>
+            <a href="javascript:void(0);" id="banner-accept" class="accept"><span class="banner-close"><?php print_svg([
+                                                                                                            'icon' => 'close',
+                                                                                                            'width'  => '16',
+                                                                                                            'height' => '16'
+                                                                                                        ]); ?></span><span class="sr-only">Accept Cookies and close banner </span></a>
         </div><!--/container-->
     </div><!--/announcement-->
 <?php }

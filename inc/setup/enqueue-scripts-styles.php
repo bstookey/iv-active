@@ -6,7 +6,7 @@
  * @package Wordpress
  */
 
-define('IV_ACTIVE_THEME_VERSION', '1.0.4');
+define('IV_ACTIVE_THEME_VERSION', '1.0.5');
 
 // Enqueue Styles
 function iv_active_enqueue_styles()
@@ -17,16 +17,6 @@ function iv_active_enqueue_styles()
 add_action('wp_enqueue_scripts', 'iv_active_enqueue_styles', 100);
 
 
-// Add backend styles for Gutenberg.
-function admin_editor_assets()
-{
-	// Load the theme styles within Gutenberg.
-	if (is_admin()) {
-		wp_enqueue_style('admin-editor-styles', get_stylesheet_directory_uri() . '/assets/css/admin-style.css', array(), IV_ACTIVE_THEME_VERSION, false);
-	}
-}
-add_action('enqueue_block_editor_assets', 'admin_editor_assets');
-
 // Enqueue Global Scripts
 function iv_active_enqueue_scripts()
 {
@@ -34,9 +24,21 @@ function iv_active_enqueue_scripts()
 		wp_enqueue_script('jquery');
 	}
 
+
 	wp_enqueue_script('bootstrap', get_stylesheet_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), IV_ACTIVE_THEME_VERSION, true);
 	wp_enqueue_script('iv-active-theme-apps-js', get_stylesheet_directory_uri() . '/assets/js/apps.js', array(), IV_ACTIVE_THEME_VERSION, true);
 	wp_enqueue_script('iv-active-theme-js', get_stylesheet_directory_uri() . '/assets/js/iv-active.js', array(), IV_ACTIVE_THEME_VERSION, true);
 	wp_localize_script('iv-active-theme-js', 'i18n', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'iv_active_enqueue_scripts');
+
+// Add backend styles for Gutenberg.
+function admin_editor_assets()
+{
+	// Load the theme styles within Gutenberg.
+	if (is_admin()) {
+		wp_enqueue_style('admin-editor-styles', get_stylesheet_directory_uri() . '/assets/css/admin-style.css', array(), IV_ACTIVE_THEME_VERSION, false);
+		wp_enqueue_script('iv-editor', get_stylesheet_directory_uri() . '/assets/js/editor.js', array(), IV_ACTIVE_THEME_VERSION, true);
+	}
+}
+add_action('enqueue_block_editor_assets', 'admin_editor_assets');

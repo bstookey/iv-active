@@ -42,7 +42,7 @@ function iv_active_customize_header_announcement($wp_customize)
 	$wp_customize->add_setting(
 		'iv_active_announcement_text',
 		array(
-			'default'           => '',
+			'default'           => 'This is a basic theme announcement banner. You can manage this in the Customizer to include a link to a page, or a custom link. It uses a default cookie length of 7 days.',
 			'sanitize_callback' => 'wp_kses_post',
 		)
 	);
@@ -57,20 +57,6 @@ function iv_active_customize_header_announcement($wp_customize)
 			'type'    => 'textarea',
 		)
 	);
-
-	// $wp_customize->add_control(
-	// 	new Text_Editor_Custom_Control(
-	// 		$wp_customize,
-	// 		'iv_active_announcement_text',
-	// 		array(
-	// 			'label'       => esc_html__('Announcement Text', THEME_DOMAIN),
-	// 			'description' => esc_html__('The announcement text will be displayed in the header. Basic HTML tags allowed.', THEME_DOMAIN),
-	// 			'section' => 'iv_active_announcement_section',
-	// 			'settings' => 'iv_active_announcement_text',
-	// 			//'type'    => 'textarea',
-	// 		)
-	// 	)
-	// );
 
 	// Register a setting.
 	$wp_customize->add_setting(
@@ -105,6 +91,8 @@ function iv_active_customize_header_announcement($wp_customize)
 			'sanitize_callback' => 'esc_url',
 		)
 	);
+
+
 
 	// Display the URL field... maybe!
 	$wp_customize->add_control(
@@ -198,6 +186,33 @@ function iv_active_customize_header_announcement($wp_customize)
 			'description'     => esc_html__('The ammount of days the user can hide the announcement.', THEME_DOMAIN),
 			'section'         => 'iv_active_announcement_section',
 			'type'            => 'number',
+		)
+	);
+
+	// Add the "Choose a Theme Color" select control
+	$theme_colors = iv_active_get_theme_colors(); // Get the theme colors
+
+	// Register a setting for the color selection
+	$wp_customize->add_setting(
+		'iv_active_announcement_color',
+		array(
+			'default'           => 'lightpink', // Default to the first color
+			'sanitize_callback' => 'sanitize_key',
+		)
+	);
+
+	// Create the select control to choose from available colors (using keys as labels)
+	$wp_customize->add_control(
+		'iv_active_announcement_color',
+		array(
+			'label'    => esc_html__('Select Theme Color for Announcement', THEME_DOMAIN),
+			'section'  => 'iv_active_announcement_section',
+			'settings' => 'iv_active_announcement_color',
+			'type'     => 'select',
+			'choices'  => array_combine(array_keys($theme_colors), array_map(function ($key, $hex) {
+				return $key . ' (' . $hex . ')'; // Show key and hex code together
+			}, array_keys($theme_colors), $theme_colors)), // Display color key with hex code
+			'description' => esc_html__('Choose a color from the theme colors.'),
 		)
 	);
 

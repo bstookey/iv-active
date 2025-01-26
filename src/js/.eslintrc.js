@@ -5,7 +5,7 @@ module.exports = {
     jquery: true,
     amd: true,
   },
-  extends: "eslint:recommended",
+  extends: ["eslint:recommended"],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
@@ -14,12 +14,7 @@ module.exports = {
       modules: true,
     },
   },
-  ignorePatterns: [
-    "jquery.touchSwipe.js",
-    "js.cookie.js",
-    "news-vue.js",
-    "format-api.js",
-  ],
+  ignorePatterns: ["js.cookie.js", "widowadjust.js"],
   rules: {
     "no-unused-vars": "off",
   },
@@ -27,5 +22,6 @@ module.exports = {
     // Cookies variable from apps file is not recognized by eslint. So let's tell eslint to ignore it
     Cookies: "readonly",
     wt: false,
+    wp: "readonly", // Tell ESLint that wp is a global variable
   },
 };

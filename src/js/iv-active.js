@@ -29,7 +29,6 @@ APP.Utilities = (function () {
 
   // Improved Text Widow Eliminator using widowadjust.js
   const noWidows = (ele) => {
-    consoleLog(ele);
     wt.fix({
       elements: "p",
       chars: 10,
@@ -41,7 +40,7 @@ APP.Utilities = (function () {
   var init = function () {
     markSup();
     noWidows("p");
-    consoleLog("APP.Utilities");
+    consoleLog("APP.Utilities Initialized");
   };
 
   return {
@@ -50,182 +49,205 @@ APP.Utilities = (function () {
 })();
 
 APP.Banner = (function () {
-  var $cookie, $cookieId, $cookieContent, $acceptCookie, $cookieDays;
+  // Customizer alert banner functions usin cookie.js
+  let $body, $cookieContent, $acceptCookie, cookieId, cookieDays;
 
-  var checkCookie = function (cname) {
-    var cookieSet = Cookies.get($cookieId) == "true";
+  const DEFAULT_COOKIE_ID = "AnnouncementCookieAccept";
+  const DEFAULT_COOKIE_DAYS = 7;
+
+  if (typeof Cookies !== "undefined") {
+    consoleLog("Cookies library is loaded!");
+  }
+
+  // Check if the cookie is set
+  const checkCookie = () => {
+    const cookieSet = Cookies.get(cookieId) === "true";
     if (!cookieSet) {
-      //alert("not accepted");
       $cookieContent.addClass("active");
+
+      consoleLog("No Cookie");
     }
   };
 
-  var setAlertCookie = function (cname, cvalue, exdays) {
-    Cookies.set($cookieId, "true", {
-      expires: $cookieDays,
-    });
+  // Set the cookie to mark the banner as accepted
+  const setAlertCookie = () => {
+    Cookies.set(cookieId, "true", { expires: cookieDays });
   };
 
-  var hideCookieBar = function () {
+  // Hide the cookie banner
+  const hideCookieBar = () => {
     $cookieContent.removeClass("active");
   };
 
-  var initEvents = function () {
-    checkCookie($cookieId);
-    $acceptCookie.on("touchstart click", function () {
+  // Initialize event listeners
+  const initEvents = () => {
+    checkCookie();
+
+    $acceptCookie.on("click", (e) => {
+      e.preventDefault();
       setAlertCookie();
       hideCookieBar();
-      return false;
     });
   };
 
-  var init = function () {
-    $cookie = false;
-    $cookieContent = $("#announcement-banner");
-    if ($cookieContent.length) {
-      $acceptCookie = $cookieContent.find("#banner-accept");
-      $cookieId =
-        $cookieContent.data("id").length != ""
-          ? $cookieContent.data("id")
-          : "AnnouncementCookieAccept";
-      $cookieDays = $cookieContent.data("days");
-      initEvents();
+  // Initialize the banner functionality
+  const init = () => {
+    $body = $("body");
+
+    // Check if body does not have the class 'logged-in'
+    if (!$body.hasClass("customize-partial-edit-shortcuts-shown")) {
+      // Do not use the cookie in the customizer.
+      $cookieContent = $("#announcement-banner");
+
+      if ($cookieContent.length) {
+        $acceptCookie = $cookieContent.find("#banner-accept");
+        cookieId = $cookieContent.data("id") || DEFAULT_COOKIE_ID;
+        cookieDays = $cookieContent.data("days") || DEFAULT_COOKIE_DAYS;
+
+        checkCookie();
+        initEvents();
+      }
+
+      console.log("APP.Banner Initialized");
     }
-    consoleLog("APP.Banner");
   };
 
-  return {
-    init: init,
-  };
+  return { init };
 })();
 
 APP.ScrollHeaderFunctions = (function () {
   let $header;
-  const scrollFunctions = function () {
-    let lastScrollTop = 0;
-    const thresh = $header.outerHeight();
-    $(window).on("scroll", function (event) {
-      const st = $(this).scrollTop();
-      if (st > lastScrollTop && lastScrollTop >= thresh) {
-        $("body").addClass("headerReady");
-        consoleLog("down");
-      } else if (st < lastScrollTop && lastScrollTop >= thresh) {
-        consoleLog("up");
-        $("body").addClass("headerShow");
-      } else if (st < lastScrollTop && st <= 1) {
-        $("body").removeClass("headerReady");
-        $("body").removeClass("headerShow");
-      }
-      if (st > lastScrollTop) {
-        $("body").removeClass("headerShow");
-      }
-      lastScrollTop = st;
-    });
+  const THRESHOLD = 60;
 
+  // Throttling helper
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return function () {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
+  };
+
+  const updateClassesBasedOnScroll = (scrollTop) => {
+    if (scrollTop >= THRESHOLD) {
+      $("body").addClass("headerReady").removeClass("headerShow");
+    } else if (scrollTop > 0 && scrollTop < THRESHOLD) {
+      $("body").addClass("headerShow").removeClass("headerReady");
+    } else {
+      $("body").removeClass("headerReady headerShow");
+    }
+  };
+
+  const handleScroll = function () {
+    let lastScrollTop = 0;
+
+    const onScroll = function () {
+      const scrollTop = $(this).scrollTop();
+
+      // Update classes based on scroll position
+      updateClassesBasedOnScroll(scrollTop);
+
+      // Keep track of the scroll position for detecting scroll direction
+      lastScrollTop = scrollTop;
+    };
+
+    $(window).on("scroll", throttle(onScroll, 100));
+  };
+
+  const handleLoad = function () {
     $(window).on("load", function () {
-      let scroll = "";
-      clearTimeout(scroll);
-      scroll = setTimeout(function () {
-        if ($(this).scrollTop() > 0) {
-          //alert($(this).scrollTop());
-          $(window).scrollTop($(window).scrollTop() + 2);
+      const initialScrollTop = $(window).scrollTop();
+
+      // Update classes based on initial scroll position
+      updateClassesBasedOnScroll(initialScrollTop);
+
+      // Trigger a slight scroll adjustment (optional, based on original behavior)
+      setTimeout(() => {
+        if (initialScrollTop > 0) {
+          $(window).scrollTop(initialScrollTop + 2);
         }
       }, 1000);
     });
   };
 
   const init = function () {
-    consoleLog("APP.ScrollHeaderFunctions");
+    consoleLog("APP.ScrollHeaderFunctions Initialized");
     $header = $(".site-header");
-    scrollFunctions();
+    handleScroll();
+    handleLoad();
   };
 
-  return {
-    init,
-  };
+  return { init };
 })();
 
 APP.CanvasMenu = (function () {
   let $body, $MobMenuContainer, $MobMenuOpen, $menuItemButton;
+  let resizeTimer;
 
-  var canvasMenu = function () {
-    if (!$MobMenuContainer.length) {
-      return;
-    }
-
-    $MobMenuOpen.on("click", toggleMobMenu);
-
-    $menuItemButton.on("click", function () {
-      var $this = $(this);
-      if ($this.parent().hasClass("expanded")) {
-        closeItems();
-      } else {
-        closeItems();
-        openItem($this);
-      }
-    });
-
-    $("body").on("keydown", closeOnEscape);
-    function closeOnEscape(event) {
-      if (event.keyCode === 27) {
-        closeMobMenu();
-      }
-    }
+  const toggleMobMenu = () => {
+    const isExpanded = $MobMenuOpen.attr("aria-expanded") === "true";
+    isExpanded ? closeMobMenu() : openMobMenu();
   };
 
-  var toggleMobMenu = function () {
-    if ($MobMenuOpen.attr("aria-expanded") === "true") {
-      closeMobMenu();
-    } else {
-      openMobMenu();
-    }
-  };
-
-  var openMobMenu = function () {
+  const openMobMenu = () => {
     $MobMenuContainer.addClass("is-visible").attr("aria-hidden", "false");
     $MobMenuOpen.addClass("open").attr("aria-expanded", "true");
     $body.addClass("mobile-menu-open");
   };
 
-  var closeMobMenu = function () {
+  const closeMobMenu = () => {
     $MobMenuContainer.removeClass("is-visible");
     $MobMenuOpen.removeClass("open").attr("aria-expanded", "false");
     $body.removeClass("mobile-menu-open");
     closeItems();
   };
 
-  var openItem = function ($this) {
-    $this.parent().addClass("expanded");
+  const openItem = ($this) => $this.parent().addClass("expanded");
+
+  const closeItems = () => $menuItemButton.parent().removeClass("expanded");
+
+  const closeOnEscape = (event) => {
+    if (event.keyCode === 27) closeMobMenu();
   };
 
-  var closeItems = function () {
-    $menuItemButton.parent().removeClass("expanded");
+  const canvasMenu = () => {
+    if (!$MobMenuContainer.length) return;
+
+    $MobMenuOpen.on("click", toggleMobMenu);
+    $menuItemButton.on("click", function () {
+      const $this = $(this);
+      $this.parent().hasClass("expanded")
+        ? closeItems()
+        : (closeItems(), openItem($this));
+    });
+
+    $("body").on("keydown", closeOnEscape);
   };
 
-  var reszeTimer;
-  $(window).on("load resize orientationchange", function (e) {
-    clearTimeout(reszeTimer);
-    reszeTimer = setTimeout(function () {
-      var $resWidth = $(window).innerWidth();
-      if ($resWidth >= 992) {
-        closeMobMenu();
-      }
+  // Handle window resize and orientation change
+  $(window).on("load resize orientationchange", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if ($(window).innerWidth() >= 992) closeMobMenu();
     }, 500);
   });
 
-  const init = function () {
+  const init = () => {
     $body = $("body");
     $MobMenuContainer = $(".nav-primary.mobile");
     $MobMenuOpen = $(".mobile-menu-open");
     $menuItemButton = $(".menu-item-has-children").find("button");
 
     canvasMenu();
-    consoleLog("APP.CanvasMenu");
+    consoleLog("APP.CanvasMenu Initialized");
   };
 
-  return {
-    init,
-  };
+  return { init };
 })();
 
 APP.LoadMore = (function () {
@@ -260,7 +282,7 @@ APP.LoadMore = (function () {
             queryEl.attr("data-paged", nextPage);
 
             if (xhr.responseJSON) {
-              console.log(xhr.responseJSON); // eslint-disable-line
+              consoleLog(xhr.responseJSON); // eslint-disable-line
             } else {
               const htmlEl = $(xhr.responseText);
 
@@ -286,7 +308,7 @@ APP.LoadMore = (function () {
   const init = function () {
     loadMore();
 
-    consoleLog("APP.Load More");
+    consoleLog("APP.Load More Initialized");
   };
   return {
     init,
