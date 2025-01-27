@@ -1,17 +1,21 @@
 <?php
 
 /**
- * Title: Post Grid Template
+ * Title: IV Post Grid Template
  * Slug: iv-active/post-grid-template
  * Categories: query
  * Description: A custom post grid layout for your posts page.
  * Keywords: posts, grid, query loop
+ * 
+ * @package IV Active
+ * @since IV Active 1.0
  */
 
 
 return array(
-    'title'      => __('IV Post Grid Template', 'iv-active'),
-    'description' => __(' A custom post grid layout for your posts page.', 'iv-active'),
+    'title'      => __('IV Post Grid Template', THEME_DOMAIN),
+    'name'      => __('post-grid-template', THEME_DOMAIN),
+    'description' => __(' A custom post grid layout for your posts page.', THEME_DOMAIN),
     'categories' => array('query'),
     'blockTypes'  => array('core/query'),
     'content'    => '<!-- wp:query {"queryId":9,"query":{"perPage":2,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"metadata":{"categories":["posts"],"patternName":"iv-active/content-post","name":"IV Blog Grid"},"className":"blog-query"} -->

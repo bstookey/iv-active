@@ -119,6 +119,9 @@ mix
   .sass("src/scss/iv-active.scss", cssPath, {
     implementation: require("sass"),
   })
+  .sass("src/scss/admin-style.scss", cssPath, {
+    implementation: require("sass"),
+  })
   .options({
     processCssUrls: false,
   })

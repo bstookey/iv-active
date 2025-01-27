@@ -2,7 +2,7 @@
 Admin Styles
 */
 
-@use "variables/variables"; // IMPORTANT! Required for theme
+@use "variables" as *; // IMPORTANT! Required for theme
 //@forward "variables/mixins/helpers"; // IMPORTANT! Required for mixins
 //@forward "variables/breakpoints/index";
 
@@ -16,6 +16,38 @@ Admin Styles
     .block-editor-block-list__block {
       max-width: 99%;
       .wp-block {
+      }
+    }
+
+    .wp-block {
+      .wp-block-columns {
+        &.row {
+          border: 1px solid #ccc;
+          background-color: $white;
+          padding: 20px;
+          div[class*="col-"],
+          div[class^="col-"] {
+            padding: 12px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc; /* Optional: add a border */
+          }
+        }
+      }
+    }
+
+    .wp-block-cover__inner-container {
+      .wp-block-columns {
+        &.row {
+          border: 1px solid #ccc;
+          background-color: transparent !important;
+          padding: 20px;
+          div[class*="col-"],
+          div[class^="col-"] {
+            padding: 12px;
+            background-color: transparent;
+            border: 1px solid #ccc; /* Optional: add a border */
+          }
+        }
       }
     }
   }

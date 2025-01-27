@@ -10,8 +10,10 @@
 function theme_register_block_patterns()
 {
 	$block_pattern_categories = array(
-		'theme_patterns' => array('label' => __('IV-Active Patterns', THEME_DOMAIN)),
-		'theme_layouts' => array('label' => __('IV-Active Layouts', THEME_DOMAIN)),
+		'iv_first_read' => array('label' => __('IV-Active First Read', THEME_DOMAIN)),
+		'iv_callout' => array('label' => __('IV-Active Callouts', THEME_DOMAIN)),
+		'iv_blocks' => array('label' => __('IV-Active Blocks', THEME_DOMAIN)),
+		'iv_bootstrap' => array('label' => __('IV-Active Bootstrap', THEME_DOMAIN)),
 	);
 
 	/**
@@ -34,13 +36,18 @@ function theme_register_block_patterns()
 
 	$block_patterns = array(
 		'bootstrap-50-50',
+		'bootstrap-3-col',
+		'bootstrap-4-col',
 		'cover-2c',
 		'cover-page',
 		'cover-cta-block',
 		'cover-form-block',
 		'list-checkmark',
 		'list-checkmark-circle',
-		'content-post'
+		'list-large-numbered',
+		'content-post', // query block
+		'step-block',
+		'image-title-cta'
 	);
 
 	$block_patterns = apply_filters('theme_block_patterns', $block_patterns);

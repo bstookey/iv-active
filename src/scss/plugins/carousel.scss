@@ -1,0 +1,11 @@
+//**** CB Carousel ****//
+
+.wp-block-cb-carousel {
+  .slick-track {
+    display: flex;
+    .slick-slide {
+      height: inherit !important;
+      padding-bottom: 20px;
+    }
+  }
+}
