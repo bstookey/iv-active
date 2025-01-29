@@ -6,7 +6,7 @@
  * @package Wordpress
  */
 
-define('IV_ACTIVE_THEME_VERSION', '1.0.8');
+define('IV_ACTIVE_THEME_VERSION', '1.10.3');
 
 // Enqueue Styles
 function iv_active_enqueue_styles()

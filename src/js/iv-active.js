@@ -5,11 +5,11 @@ $ = window.jQuery;
 // CREATE APP
 var APP = (window.APP = window.APP || {});
 
-var debug = true;
+var debug = false;
 
 function consoleLog(logMessage) {
   if (debug) {
-    console.log(logMessage);
+    consoleLog(logMessage);
   }
 }
 
@@ -108,7 +108,7 @@ APP.Banner = (function () {
         initEvents();
       }
 
-      console.log("APP.Banner Initialized");
+      consoleLog("APP.Banner Initialized");
     }
   };
 
@@ -315,10 +315,178 @@ APP.LoadMore = (function () {
   };
 })();
 
+APP.Form = (function () {
+  var $submit, tylocation;
+
+  var actionEvents = function () {
+    document.addEventListener(
+      "wpcf7submit",
+      function (event) {
+        //consoleLog(event.detail.inputs);
+        $.each(event.detail.inputs, function (i, input) {
+          if (input.name == "list-services[]" || input.name == "isprovider") {
+            tylocation = "/thank-you/";
+            // return false;
+          }
+        });
+        sendToHubSpot(tylocation);
+      },
+      false
+    );
+  };
+
+  var sendToHubSpot = function (loc) {
+    //consoleLog(loc);
+    $.ajax({
+      type: "POST",
+      url: "/iv-active/wp-content/themes/iv-active/integrations/add-signup.php",
+      data: $("form").serialize(),
+      datatype: "json",
+      success: function () {
+        //consoleLog("Contact Added To HubSpot");
+        location = loc;
+      },
+      error: function (xhr, textStatus, errorThrown) {
+        //consoleLog(errorThrown);
+      },
+    });
+  };
+
+  var init = function () {
+    $submit = $(".contact-form .wpcf7-submit");
+    tylocation = "/contact-thank-you";
+    actionEvents();
+    consoleLog("APP.Form Initialized");
+  };
+
+  return {
+    init: init,
+  };
+})();
+
+APP.Carousel = (function () {
+  var $carousel, $carouselInner, $carouselItem;
+
+  var carouselHeight = function () {
+    $carousel.each(function () {
+      var items = $(this).find(".carousel-item");
+      // Temporarily show all items to measure their heights
+      items.css({
+        display: "block",
+        visibility: "hidden",
+      });
+
+      // Calculate the maximum height
+      var maxHeight = Math.max.apply(
+        null,
+        items
+          .map(function () {
+            return $(this).outerHeight();
+          })
+          .get()
+      );
+
+      // Reset items back to their original styles
+      items.css({
+        display: "",
+        visibility: "",
+      });
+
+      // Set the min-height for consistency
+      items.css("min-height", maxHeight + "px");
+      $(this)
+        .find(".iv-carousel-item")
+        .css("min-height", maxHeight + "px");
+    });
+  };
+
+  var setCarousel = function (interval = 1000) {
+    $carousel.carousel({
+      interval: interval,
+      pause: "hover",
+      //ride: "carousel",
+    });
+
+    $carouselItem.first().addClass("active");
+    $(".carousel-indicators > button:first").addClass("active");
+    setTimeout(function () {
+      $carousel.parent().addClass("alive");
+    }, 500);
+  };
+
+  var touchswipe = function () {
+    const swpele = $(".carousel");
+    swpele.swipe({
+      fingers: "all",
+      swipeLeft: swipe1,
+      swipeRight: swipe1,
+      allowPageScroll: "vertical",
+    });
+
+    function swipe1(
+      event,
+      direction,
+      distance,
+      duration,
+      fingerCount,
+      fingerData
+    ) {
+      //alert("You swiped " + direction );
+      if (direction === "left") {
+        $(this).carousel("next");
+      }
+      if (direction === "right") {
+        $(this).carousel("prev");
+      }
+    }
+  };
+
+  var handleResize = function () {
+    var resTimer;
+    $(window).on("resize orientationchange", function () {
+      consoleLog("resize");
+      clearTimeout(resTimer);
+      resTimer = setTimeout(function () {
+        $carouselItem.css("min-height", ""); // Reset height
+        $carouselItem.find(".iv-carousel-item").css("min-height", ""); // Reset height
+        carouselHeight(); // Recalculate heights
+      }, 500);
+    });
+  };
+
+  var init = function () {
+    consoleLog("APP.Carousel");
+
+    $carousel = $(".vertical-carousel.carousel");
+    $carouselInner = $carousel.find(".carousel-inner");
+    $carouselItem = $carousel.find(".carousel-item");
+
+    if ($carousel.length) {
+      // First, calculate and set the heights of the items
+      carouselHeight();
+
+      // Then, initialize the carousel
+      setCarousel(5000);
+
+      // Enable touch swipe
+      touchswipe();
+
+      // Handle resize properly
+      handleResize();
+    }
+  };
+
+  return {
+    init: init,
+  };
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
   APP.Utilities.init();
   APP.Banner.init();
   APP.ScrollHeaderFunctions.init();
   APP.CanvasMenu.init();
   APP.LoadMore.init();
+  APP.Form.init();
+  APP.Carousel.init();
 });

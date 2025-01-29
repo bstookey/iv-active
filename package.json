@@ -25,6 +25,7 @@
     "@fontsource/montserrat": "^5.1.1",
     "@fontsource/open-sans": "^5.1.1",
     "@fontsource/poppins": "^5.1.1",
+    "jquery-touchswipe": "^1.6.19",
     "util": "^0.12.5"
   },
   "devDependencies": {

@@ -15,7 +15,8 @@
     "spacing": {
       "defaultSpacingSizes": false,
       "blockGap": false,
-      "padding": false,
+      "padding": true,
+      "margin": false,
       "spacingSizes": [
         {
           "name": "Tiny",
@@ -214,8 +215,8 @@
     "spacing": {
       "blockGap": "20px",
       "padding": {
-        "left": "var:preset|spacing|30",
-        "right": "var:preset|spacing|30"
+        "left": "var:preset|spacing|20",
+        "right": "var:preset|spacing|20"
       }
     },
     "typography": {
@@ -270,14 +271,14 @@
           }
         }
       },
-      "core/columns": {
-        "spacing": {
-          "blockGap": "var:preset|spacing|50"
-        }
-      },
       "core/buttons": {
         "spacing": {
           "blockGap": "16px"
+        }
+      },
+      "core/columns": {
+        "spacing": {
+          "blockGap": "var:preset|spacing|50"
         }
       },
       "core/code": {
@@ -378,6 +379,21 @@
           "fontSize": "var:preset|font-size|small"
         }
       },
+      "core/cover": {
+        "spacing": {
+          "padding": {
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0"
+          }
+        }
+      },
+      "core/group": {
+        "dimensions": {
+          "padding": true
+        }
+      },
       "core/post-comments-form": {
         "css": "& textarea, input:not([type=submit]){border-radius:.25rem; border-color: var(--wp--preset--color--accent-6) !important;} & input[type=checkbox]{margin:0 .2rem 0 0 !important;} & label {font-size: var(--wp--preset--font-size--small); }",
         "typography": {
@@ -438,6 +454,9 @@
         "typography": {
           "fontSize": "var:preset|font-size|small"
         }
+      },
+      "core/list": {
+        "css": "& li{margin-top: 1.5rem;}"
       },
       "core/post-navigation-link": {
         "typography": {
@@ -629,19 +648,6 @@
             }
           }
         }
-      },
-      "core/list": {
-        "css": "& li{margin-top: 1.5rem;}"
-      },
-      "core/cover": {
-        "spacing": {
-          "padding": {
-            "top": "0",
-            "right": "0",
-            "bottom": "0",
-            "left": "0"
-          }
-        }
       }
     },
     "elements": {
@@ -715,7 +721,7 @@
       "heading": {
         "typography": {
           "fontWeight": "400",
-          "lineHeight": "1.125",
+          "lineHeight": "1.2",
           "letterSpacing": "-0.1px"
         }
       },

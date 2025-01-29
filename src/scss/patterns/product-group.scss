@@ -1,0 +1,15 @@
+/**** Product Group ****/
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.product-group {
+  padding: clamp-calc(768px, 1024px, 10px, 16px);
+  padding-bottom: clamp-calc(768px, 1024px, 24px, 34px);
+
+  .wp-block-cover {
+    min-height: 0;
+    aspect-ratio: 356 / 314;
+    border-radius: clamp-calc(768px, 1024px, 10px, 16px);
+    border-bottom-left-radius: 30%;
+  }
+}

@@ -96,10 +96,10 @@ if (owlCarousel) {
       staticCssPath + "owl-carousel"
     );
   }
-  if (!fs.existsSync(jsPath + "/apps/owl.carousel.min.js")) {
+  if (!fs.existsSync(staticJsPath + "/apps/owl.carousel.min.js")) {
     mix.copy(
       "node_modules/owl.carousel/dist/owl.carousel.min.js",
-      jsPath + "apps"
+      staticJsPath + "/apps"
     );
   }
 }
@@ -114,7 +114,7 @@ if (cookieJs) {
 mix
   .copy("src/images", "assets/images")
   .scripts("src/js/apps/", jsPath + "apps.js")
-  .js("src/js/editor/buttons.js", jsPath + "editor.js")
+  .js("src/js/editor/editor.js", jsPath + "editor.js")
   .js(["src/js/iv-active.js"], jsPath + "iv-active.js")
   .sass("src/scss/iv-active.scss", cssPath, {
     implementation: require("sass"),

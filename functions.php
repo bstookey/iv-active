@@ -96,6 +96,8 @@ function customize_navigation_block_rendering($block_content, $block)
 		$class_name = isset($block['attrs']['className']) ? $block['attrs']['className'] : '';
 		$ref_id = isset($block['attrs']['ref']) ? (int) $block['attrs']['ref'] : 0;
 
+		$menu = null; // Initialize $menu
+
 		if (isset($block['attrs']['ref'])) {
 			$ref_id = $block['attrs']['ref']; // Post ID of the navigation block
 			$menu_post = get_post($ref_id);
@@ -116,22 +118,19 @@ function customize_navigation_block_rendering($block_content, $block)
 			error_log('No Ref ID found in navigation block.');
 		}
 
-
 		// Get the menu name or location if the 'ref' is available
-		if ($ref_id) {
-			if ($menu && 'mobile' === $menu->slug) {
-				// Apply wp_nav_menu for the mobile menu
-				ob_start();
-				wp_nav_menu([
-					'theme_location' => $menu->slug,
-					'container'      => false,
-					'menu_class'     => 'nav-primary',
-					'walker'         => new Block_Navigation_Walker(),
-					'aria_label'     => 'Mobile Navigation',
-					'items_wrap'     => '%3$s',
-				]);
-				$block_content = ob_get_clean();
-			}
+		if ($ref_id && $menu && 'mobile' === $menu->slug) { // Ensure $menu is defined
+			// Apply wp_nav_menu for the mobile menu
+			ob_start();
+			wp_nav_menu([
+				'theme_location' => $menu->slug,
+				'container'      => false,
+				'menu_class'     => 'nav-primary',
+				'walker'         => new Block_Navigation_Walker(),
+				'aria_label'     => 'Mobile Navigation',
+				'items_wrap'     => '%3$s',
+			]);
+			$block_content = ob_get_clean();
 		}
 	}
 	return $block_content;

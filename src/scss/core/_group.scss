@@ -1,0 +1,8 @@
+/* Group */
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.has-rounded-default {
+  border-radius: $global-radius;
+  overflow: hidden;
+}

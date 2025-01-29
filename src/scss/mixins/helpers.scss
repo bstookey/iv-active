@@ -21,13 +21,13 @@
 // Gutter mixin for parent negative margin and child padding
 @mixin bs-gutter($gutter, $sp: pos) {
   @if $sp == neg {
-    margin-left: -$gutter;
-    margin-right: -$gutter;
+    margin-left: -$gutter !important;
+    margin-right: -$gutter !important;
   }
 
   @if $sp == pos {
-    padding-left: $gutter;
-    padding-right: $gutter;
+    padding-left: $gutter !important;
+    padding-right: $gutter !important;
   }
 }
 

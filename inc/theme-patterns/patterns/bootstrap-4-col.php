@@ -17,8 +17,8 @@ return array(
     'description' => __('A Bootstrap 4 column layout.', THEME_DOMAIN),
     'categories' => array('iv_bootstrap'),
     'keywords'    => ['columns', 'bootstrap', 'container'],
-    'content'    => '<!-- wp:group {"metadata":{"name":"Bootstrap Container"},"className":"row is-style-default","layout":{"type":"constrained"}} -->
-<div class="wp-block-group row is-style-default">
+    'content'    => '<!-- wp:group {"metadata":{"name":"Bootstrap Container"},"className":"is-style-default","layout":{"type":"constrained"}} -->
+<div class="wp-block-group is-style-default">
 <!-- wp:columns {"isStackedOnMobile":false,"metadata":{"name":"Bootstrap Row"},"className":"row"} -->
 <div class="wp-block-columns is-not-stacked-on-mobile row">
 <!-- wp:column {"metadata":{"name":"Bootstrap Column"},"className":"col-md-6 col-lg-3 col-xl-4"} -->

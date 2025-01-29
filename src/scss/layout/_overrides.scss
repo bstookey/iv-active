@@ -6,13 +6,11 @@
 .wp-block-columns,
 .wp-block-group {
   &.row {
-    width: 100%;
     flex-wrap: wrap !important;
     gap: 0;
     @include bs-gutter($gutter, neg);
     > *,
     .wp-block-column {
-      flex-basis: unset !important;
       @include bs-gutter($gutter, pos);
 
       &.is-vertically-aligned-center {

@@ -1,0 +1,125 @@
+/* Buttons */
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.wp-block-buttons {
+  .wp-block-button:not(.is-style-outline) {
+    .wp-block-button__link:not(.has-background) {
+      // this is the default button
+      @include cta-button($white, $aqua, $aqua);
+
+      &:focus-visible,
+      &:hover {
+        @include cta-button($white, $neutraldark, $neutraldark);
+      }
+    }
+  }
+
+  .wp-block-button {
+    &__link {
+      line-height: 1;
+    }
+    &.is-style-outline {
+      &:hover {
+        .wp-block-button__link {
+          // this is the default outline button
+          background-color: $aqua;
+          border-color: $aqua;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  @if type-of($colors) != "map" {
+    @error "Sorry, $colors is not a Sass map!";
+  }
+
+  @each $color, $value in $colors {
+    .wp-block-button {
+      &.is-style-outline {
+        .has-#{"" + $color}-color {
+          border-color: $value;
+
+          &:hover {
+            background-color: $value !important;
+            border-color: $value !important;
+          }
+
+          @if "#{$color}" == "white" {
+            &:hover {
+              color: $aqua !important;
+            }
+          }
+          @if "#{$color}" == "aqua" {
+            &:hover {
+              color: $white !important;
+            }
+          }
+          @if "#{$color}" == "neutraldark" {
+            &:hover {
+              color: $white !important;
+            }
+          }
+        }
+      }
+      .has-background {
+        &.has-#{"" + $color}-background-color {
+          @if "#{$color}" == "white" {
+            color: $neutraldark !important;
+
+            &:hover {
+              color: $aqua !important;
+            }
+          }
+          @if "#{$color}" == "aqua" {
+            &:hover {
+              background-color: $neutraldark !important;
+              color: $value !important;
+            }
+          }
+
+          @if "#{$color}" == "neutraldark" {
+            &:hover {
+              background-color: $aqua !important;
+              color: $white !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.on-dark-background {
+    .wp-block-button:not(.is-style-outline) {
+      .wp-block-button__link {
+        @include cta-button($white, $aqua, $aqua);
+
+        &:focus-visible,
+        &:hover {
+          @include cta-button($aqua, $white, $white);
+        }
+      }
+    }
+
+    @each $color, $value in $colors {
+      .wp-block-button {
+        .has-background {
+          &.has-#{"" + $color}-background-color {
+            @if "#{$color}" == "white" {
+              &:hover {
+                color: $aqua !important;
+              }
+            }
+            @if "#{$color}" == "aqua" {
+              &:hover {
+                background-color: $white !important;
+                color: $value !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

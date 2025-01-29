@@ -1,3 +1,5 @@
+// Core buttons custom settings
+
 const { addFilter } = wp.hooks;
 const { createHigherOrderComponent } = wp.compose;
 const { Fragment } = wp.element;
@@ -18,6 +20,7 @@ const addCustomButtonAttribute = (settings, name) => {
   }
   return settings;
 };
+
 addFilter(
   "blocks.registerBlockType",
   "custom/buttons-block/add-custom-attribute",
@@ -71,6 +74,77 @@ addFilter(
   "blocks.getSaveElement",
   "custom/button-block/save-custom-attribute",
   saveCustomButtonAttribute
+);
+
+// Core Group custom settings
+
+// Step 1: Add a custom attribute to the button block
+const addCustomGroupAttribute = (settings, name) => {
+  if (name === "core/group") {
+    settings.attributes = {
+      ...settings.attributes,
+      isCustomToggleEnabled: {
+        type: "boolean",
+        default: false,
+      },
+    };
+  }
+  return settings;
+};
+
+addFilter(
+  "blocks.registerBlockType",
+  "custom/group-block/add-custom-attribute",
+  addCustomGroupAttribute
+);
+
+// Step 2: Add the toggle control to the block's inspector controls
+const withCustomGroupSettings = createHigherOrderComponent((BlockEdit) => {
+  return (props) => {
+    const { attributes, setAttributes, name } = props;
+
+    if (name === "core/group") {
+      return (
+        <Fragment>
+          <BlockEdit {...props} />
+          <InspectorControls>
+            <PanelBody title="Custom Settings" initialOpen={true}>
+              <ToggleControl
+                label="Rounded Corners"
+                checked={attributes.isCustomToggleEnabled}
+                onChange={(value) =>
+                  setAttributes({ isCustomToggleEnabled: value })
+                }
+              />
+            </PanelBody>
+          </InspectorControls>
+        </Fragment>
+      );
+    }
+
+    return <BlockEdit {...props} />;
+  };
+}, "withCustomGroupSettings");
+addFilter(
+  "editor.BlockEdit",
+  "custom/group-block/with-custom-settings",
+  withCustomGroupSettings
+);
+
+// Step 3: Save the custom attribute in the block's output
+const saveCustomGroupAttribute = (element, blockType, attributes) => {
+  if (blockType.name === "core/group" && attributes.isCustomToggleEnabled) {
+    return wp.element.cloneElement(element, {
+      ...element.props,
+      className: `${element.props.className || ""} has-rounded-default`,
+    });
+  }
+  return element;
+};
+addFilter(
+  "blocks.getSaveElement",
+  "custom/group-block/save-custom-attribute",
+  saveCustomGroupAttribute
 );
 
 // Remove WP reset styles from the dynamically-generated admin stylesheet, load-styles.php (WP 5.8)
