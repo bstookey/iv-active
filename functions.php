@@ -136,18 +136,3 @@ function customize_navigation_block_rendering($block_content, $block)
 	return $block_content;
 }
 add_filter('render_block', 'customize_navigation_block_rendering', 10, 2);
-
-function exclude_expired_events($query)
-{
-	if (!is_admin() && $query->is_main_query() && $query->is_post_type_archive('events')) {
-		$query->set('meta_query', [
-			[
-				'key'     => 'expiration_date',
-				'value'   => date('Ymd'), // Today's date in 'YYYYMMDD' format
-				'compare' => '>=', // Show only events that haven't expired
-				'type'    => 'NUMERIC'
-			]
-		]);
-	}
-}
-add_action('pre_get_posts', 'exclude_expired_events');
