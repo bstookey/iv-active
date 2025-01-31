@@ -18,4 +18,6 @@ if ($iframe) : ?>
             <?= $iframe ?>
         </div>
     </div>
+    <?php else; ?>
+    <p>Please enter an iframe url</p>
 <?php endif; ?>

@@ -1,0 +1,31 @@
+/**** Yoast Faq ****/
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.wp-block-yoast-faq-block {
+  .schema-faq-section {
+    .schema-faq-question {
+      color: $neutraldark;
+      font-size: clamp-calc(768px, 1024px, 14px, 18px);
+
+      &:after {
+        content: "";
+        width: 24px;
+        height: 24px;
+        display: block;
+        top: 50%;
+        transform: translateY(-50%) rotate(180deg);
+        @include global-transition;
+        background-image: url("data:image/svg+xml,%3Csvg fill='%2310ddd6' viewBox='-1 0 19 19' xmlns='http://www.w3.org/2000/svg' class='cf-icon-svg' stroke='%2310ddd6'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M16.416 9.579A7.917 7.917 0 1 1 8.5 1.662a7.916 7.916 0 0 1 7.916 7.917zm-2.548 1.225L9.06 5.996a.792.792 0 0 0-1.12 0l-4.808 4.808a.792.792 0 0 0 1.12 1.12L8.5 7.675l4.248 4.249a.792.792 0 0 0 1.12-1.12z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+      }
+      &:hover {
+        color: $aqua;
+      }
+      &.faq-q-open {
+        &:after {
+          transform: translateY(-50%) rotate(0);
+        }
+      }
+    }
+  }
+}

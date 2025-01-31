@@ -6,7 +6,8 @@
   background-color: $neutraldark;
   border-radius: 40px 40px 0 0;
   color: $white;
-  padding-top: 40px;
+  padding-top: clamp-calc(768px, 1024px, 32px, 40px);
+  margin-top: clamp-calc(768px, 1024px, 50px, 100px);
   font-size: 14px;
 
   @include media-breakpoint-up(lg) {
@@ -41,11 +42,13 @@
   }
 
   .footer-connect {
+    white-space: nowrap;
     font-size: clamp-calc(768px, 1024px, 14px, 16px);
     .phone {
       align-items: center;
       gap: 15px;
       margin: 20px 0 20px;
+      white-space: inherit;
 
       a {
         display: flex;
@@ -74,6 +77,7 @@
 
     .email {
       margin: 10px 0;
+      white-space: inherit;
 
       a {
         display: flex;

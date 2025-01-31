@@ -15,7 +15,6 @@
 ?>
 <!-- wp:group {"metadata":{"name":"Site Header"},"align":"full","className":"site-header header-desktop","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull site-header header-desktop"><!-- wp:group {"metadata":{"name":"Header Connect"},"align":"full","className":"connect-wrapper","layout":{"type":"default"}} -->
-	<?php display_announcement_text(); ?>
 	<div class="wp-block-group alignfull connect-wrapper"><!-- wp:acf/header-connect-block {"name":"acf/header-connect-block","align":"full","mode":"preview"} /--></div>
 	<!-- /wp:group -->
 
@@ -26,13 +25,13 @@
 
 		<!-- wp:navigation {"ref":225,"overlayMenu":"never","className":"nav-primary mobile"} /-->
 
-		<!-- wp:buttons {"className":"header-buttons"} -->
+		<!-- wp:buttons {"className":"header-buttons on-dark-background"} -->
 		<div class="wp-block-buttons header-buttons on-dark-background"><!-- wp:button {"textColor":"white","className":"is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}}} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color has-link-color wp-element-button">Text Us</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color has-link-color wp-element-button" href="sms:+18664504185?&amp;body=Hi%2520there%252C%2520I%2527d%2520like%2520to%2520learn%2520more%2520about%2520IV%2520Active">Text Us</a></div>
 			<!-- /wp:button -->
 
 			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Book Now</a></div>
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/book-now/">Book Now</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

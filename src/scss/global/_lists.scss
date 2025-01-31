@@ -4,6 +4,7 @@
 @use "../mixins" as *;
 
 ul {
+  font-size: clamp-calc(768px, 1024px, 16px, 18px);
   &.checkmark-list {
     list-style: none;
     padding: 0;
@@ -36,11 +37,12 @@ ul {
         justify-content: flex-start;
         gap: 12px;
         align-items: flex-start;
+        font-weight: 600;
 
         &:before {
           content: "";
           display: block;
-          margin-top: 6px;
+          margin-top: 3px;
           flex: 0 0 20px;
           height: 20px;
           background-size: contain;
@@ -55,29 +57,33 @@ ol {
   &.large-number-list {
     list-style: none;
     counter-reset: lg_counter;
-    margin: 0;
+    margin: 20px 0 0 0;
     padding: 0;
 
     > li {
       counter-increment: lg_counter;
-      display: flex;
       flex-wrap: nowrap;
-      width: 50%;
       font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      gap: 30px;
+      margin-bottom: 30px;
+      display: block;
+      position: relative;
+      padding-left: clamp-calc(768px, 1024px, 70px, 100px);
+      min-height: 36px;
 
       &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
         content: "0" counter(lg_counter);
-        font-weight: 800;
-        font-size: clamp-calc(768px, 1024px, 40px, 55px);
+        font-weight: 700;
+        font-size: clamp(40px, -5px + 0.05859375 * 100vw, 55px);
         margin-right: 0.5rem;
         font-family: "Poppins", sans-serif;
         line-height: 1;
-        color: $mediumgray;
-        display: inline-block;
+        color: #939393;
+        display: block;
         text-align: right;
-        flex: 0 0 72px;
+        width: clamp-calc(768px, 1024px, 56px, 76px);
       }
     }
   }

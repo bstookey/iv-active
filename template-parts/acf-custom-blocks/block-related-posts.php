@@ -22,7 +22,7 @@ $block_anchor = (!empty($block['anchor'])) ? 'id="' . $block['anchor'] . '"' : '
 
 if ($related) :
 ?>
-    <div <?= $block_anchor ?> class="related-posts-wrapper<?= $classes ?>">
+    <div <?= $block_anchor ?> class="related-posts-wrapper <?= $classes ?>">
         <?php if (!empty($title)) : ?><h2 <?= $block_anchor ?> class="related-title"><?= $title ?></h2><?php endif ?>
         <ul class="post-item-wrapper related-posts">
             <?php
@@ -39,15 +39,13 @@ if ($related) :
                 <li class="wp-block-post related">
                     <div id="<?= $slug ?>" class="post-item wp-block-group">
                         <figure class="wp-block-post-featured-image">
-                            <a href="<?= $link ?>" class="post-link">
-                                <?= get_the_post_thumbnail(
-                                    $id,
-                                    'medium',
-                                    array(
-                                        'sizes' => '(max-width: 960px) 75vw, 230px', // Just an example.
-                                    ),
-                                ); ?>
-                            </a>
+                            <?= get_the_post_thumbnail(
+                                $id,
+                                'medium',
+                                array(
+                                    'sizes' => '(max-width: 960px) 75vw, 230px', // Just an example.
+                                ),
+                            ); ?>
                         </figure>
                         <h2 class="wp-block-post-title">
                             <?= $title ?>

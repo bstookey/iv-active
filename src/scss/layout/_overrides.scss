@@ -11,10 +11,21 @@
     @include bs-gutter($gutter, neg);
     > *,
     .wp-block-column {
+      flex-basis: inherit !important;
       @include bs-gutter($gutter, pos);
 
       &.is-vertically-aligned-center {
         width: min-content;
+      }
+      > .wp-block-group {
+        &.has-background {
+          height: 100%;
+        }
+      }
+    }
+    &:not(.is-not-stacked-on-mobile) {
+      > .wp-block-column {
+        flex-basis: inherit !important;
       }
     }
   }
@@ -23,6 +34,24 @@
 
     .wp-block-column {
       //@include bs-gutter($gutter, pos);
+    }
+  }
+  &.alignfull {
+    > .wp-block-cover {
+      margin: 0 $gutter;
+    }
+    > .alignfull {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  p {
+    &.has-background {
+      display: inline-block;
+      line-height: 1.2;
+      padding: clamp-calc(768px, 1024px, 8px, 10px)
+        clamp-calc(768px, 1024px, 20px, 30px);
     }
   }
 }

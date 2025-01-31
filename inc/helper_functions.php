@@ -4,15 +4,16 @@ function iv_active_get_theme_colors()
     // these colors are copied from src > scss > global > variables
     $colors = '(
         aqua: #10ddd6,
-        aqualight: #d3f9f7,
-        grey: #414345,
-        darkgrey: #1f488d,
-        mediumgray: #939393,
-        lightgray: #e2e7ea,
-        lightpink: #d6dadc,
-        neutraldark: #292828,
-        black: #000000,
-        white: #ffffff
+  aqualight: #d3f9f7,
+  grey: #414345,
+  darkgrey: #1f488d,
+  mediumgray: #939393,
+  lightgray: #e2e7ea,
+  lightpink: #f7f2f3,
+  lightpurple: #eeeff4,
+  neutraldark: #292828,
+  black: #000000,
+  white: #ffffff
     )';
 
     $matches = [];

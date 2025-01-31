@@ -47,7 +47,9 @@ function theme_register_block_patterns()
 		'list-large-numbered',
 		'content-post', // query block
 		'step-block',
-		'image-title-cta'
+		'image-title-cta',
+		'first-read-page-2c',
+		'form-with_background'
 	);
 
 	$block_patterns = apply_filters('theme_block_patterns', $block_patterns);

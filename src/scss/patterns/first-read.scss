@@ -7,6 +7,8 @@
     padding-top: 120px !important;
     text-align: center;
     border-radius: 0 0 40px 40px;
+    min-height: 0;
+    margin-bottom: clamp-calc(768px, 1024px, 40px, 60px);
 
     @include media-breakpoint-down(md) {
       .wp-block-buttons {
@@ -26,6 +28,10 @@
       text-align: left;
     }
 
+    .wp-block-post-title {
+      font-weight: 900;
+    }
+
     &.default {
       text-align: center;
     }
@@ -35,6 +41,7 @@
       font-family: "Montserrat", sans serif;
       color: $aqua;
       text-align: center;
+      margin-top: 20px;
 
       .breadcrumb-separator {
         display: inline-block;

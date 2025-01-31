@@ -22,8 +22,8 @@ return array(
 <figure class="wp-block-image size-full"><img src="http://localhost:8888/iv-active/wp-content/uploads/shutterstock_2188096049-1920w.webp" alt="" class="wp-image-436"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:heading {"textAlign":"center","style":{"typography":{"fontWeight":"700","fontStyle":"normal"}},"fontSize":"x-large"} -->
-<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="font-style:normal;font-weight:700">Philadelphia</h2>
+<!-- wp:heading {"textAlign":"center","style":{"typography":{"fontWeight":"700","fontStyle":"normal"}},"fontSize":"large"} -->
+<h2 class="wp-block-heading has-text-align-center has-large-font-size" style="font-style:normal;font-weight:700">Alergies</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"metadata":{"name":"Hidden Link"},"className":"group-link"} -->

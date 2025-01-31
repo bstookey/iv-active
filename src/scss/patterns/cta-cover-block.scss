@@ -15,7 +15,7 @@
     }
 
     @include media-breakpoint-up(md) {
-      padding: 80px 40px;
+      padding: 60px 40px;
     }
 
     &__inner-container {
@@ -28,6 +28,7 @@
         font-size: clamp-calc(768px, 1024px, 16px, 20px);
         display: block;
         max-width: 620px;
+        padding-bottom: 10px;
       }
     }
   }

@@ -420,6 +420,8 @@ APP.Carousel = (function () {
       fingers: "all",
       swipeLeft: swipe1,
       swipeRight: swipe1,
+      swipeUp: swipe1,
+      swipeDown: swipe1,
       allowPageScroll: "vertical",
     });
 
@@ -436,6 +438,12 @@ APP.Carousel = (function () {
         $(this).carousel("next");
       }
       if (direction === "right") {
+        $(this).carousel("prev");
+      }
+      if (direction === "up") {
+        $(this).carousel("next");
+      }
+      if (direction === "down") {
         $(this).carousel("prev");
       }
     }

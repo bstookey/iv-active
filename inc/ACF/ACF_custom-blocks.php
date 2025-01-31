@@ -169,9 +169,24 @@ function iv_active_acf_init()
       'description' => esc_html__('Selected posts displayed in a block grid with ', 'iv-active'),
       //'render_template'  => $acf_block_path . 'related-posts.php',
       'render_callback' => 'render_related_posts',
-      'category'    => 'cmap-blocks',
-      'icon'      => 'table-col-before',
+      'category'    => $category_default,
+      'icon'      => 'dashicons-grid-view',
       'keywords'    => array('related', 'post', 'blog', 'similar'),
+      'align' => 'full',
+      'mode'      => $mode_default,
+      'supports' => array_merge($supports, array('align' => false)),
+    ));
+
+    // Event Posts
+    acf_register_block_type(array(
+      'name'      => 'event-posts',
+      'title'      => __('Event Posts'),
+      'description' => esc_html__('Selected events displayed in a block grid with ', 'iv-active'),
+      //'render_template'  => $acf_block_path . 'related-posts.php',
+      'render_callback' => 'render_event_posts',
+      'category'    => $category_default,
+      'icon'      => 'dashicons-grid-view',
+      'keywords'    => array('event', 'post'),
       'align' => 'full',
       'mode'      => $mode_default,
       'supports' => array_merge($supports, array('align' => false)),
@@ -224,6 +239,18 @@ function render_related_posts($block)
 
   // Include the shared template
   include get_template_directory() . '/template-parts/acf-custom-blocks/block-related-posts.php';
+}
+
+// Related Posts callback
+function render_event_posts($block)
+{
+  // Gather data specific to this block
+  $block_data = [
+    'expiration_date' => get_field('expiration_date', get_the_ID()),
+  ];
+
+  // Include the shared template
+  include get_template_directory() . '/template-parts/acf-custom-blocks/block-event-posts.php';
 }
 
 

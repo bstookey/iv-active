@@ -9,49 +9,69 @@
       "defaultPalette": false
     },
     "layout": {
-      "contentSize": "1260px",
+      "contentSize": "1200px",
       "wideSize": "1340px"
     },
     "spacing": {
       "defaultSpacingSizes": false,
-      "blockGap": false,
+      "blockGap": true,
       "padding": true,
-      "margin": false,
+      "margin": true,
       "spacingSizes": [
         {
-          "name": "Tiny",
+          "name": "Tiny (10)",
           "size": "10px",
           "slug": "10"
         },
         {
-          "name": "X-Small",
+          "name": "X-Small (20)",
           "size": "20px",
           "slug": "20"
         },
         {
-          "name": "Small",
+          "name": "Small (30)",
           "size": "30px",
           "slug": "30"
         },
         {
-          "name": "Regular",
+          "name": "Medium (40)",
+          "size": "40px",
+          "slug": "40"
+        },
+        {
+          "name": "15-30 Responsive",
+          "size": "clamp(15px, 5vw, 30px)",
+          "slug": "42"
+        },
+        {
+          "name": "20-40 Responsive",
+          "size": "clamp(20px, 5vw, 40px)",
+          "slug": "45"
+        },
+        {
+          "name": "30-50 Responsive",
           "size": "clamp(30px, 5vw, 50px)",
           "slug": "50"
         },
         {
-          "name": "Large",
-          "size": "clamp(30px, 7vw, 70px)",
+          "name": "40-70 Responsive",
+          "size": "clamp(40px, 7vw, 70px)",
           "slug": "70"
         },
         {
-          "name": "X-Large",
+          "name": "50-90 Responsive",
           "size": "clamp(50px, 7vw, 90px)",
           "slug": "90"
         },
         {
-          "name": "XX-Large",
-          "size": "clamp(70px, 10vw, 140px)",
-          "slug": "140"
+          "name": "70-110 Responsive",
+          "size": "clamp(70px, 10vw, 110px)",
+          "slug": "110"
+        },
+        {
+          "name": "70-130 Responsive",
+          "size": "clamp(70px, 10vw, 130px)",
+          "slug": "170"
         }
       ],
       "units": ["%", "px", "em", "rem", "vh", "vw"]
@@ -63,45 +83,69 @@
       "fontSizes": [
         {
           "fluid": false,
-          "name": "Small",
+          "name": "10-12 Responsive",
           "size": "clamp(1rem, 2vw, 1.2rem)",
+          "slug": "x-small"
+        },
+        {
+          "fluid": false,
+          "name": "12-14 Responsive",
+          "size": "clamp(1.2rem, 4vw, 1.4rem)",
           "slug": "small"
         },
         {
-          "fluid": {
-            "max": "1.6rem",
-            "min": "1rem"
-          },
-          "name": "Medium",
-          "size": "1.6rem",
+          "fluid": false,
+          "name": "14-16 Responsive",
+          "size": "clamp(1.4rem, 5vw, 1.6rem)",
           "slug": "medium"
         },
         {
-          "fluid": {
-            "max": "1.8rem",
-            "min": "1.6rem"
-          },
-          "name": "Large",
-          "size": "1.8rem",
+          "fluid": false,
+          "name": "16-18 Responsive",
+          "size": "clamp(1.6rem, 5vw, 1.8rem)",
+          "slug": "medium-alt"
+        },
+        {
+          "fluid": false,
+          "name": "18-20 Responsive",
+          "size": "clamp(1.8rem, 5vw, 2rem)",
+          "slug": "medium-plus"
+        },
+        {
+          "fluid": false,
+          "name": "18-22 Responsive",
+          "size": "clamp(1.8rem, 5vw, 2.2rem)",
           "slug": "large"
         },
         {
-          "fluid": {
-            "max": "2.2rem",
-            "min": "1.8rem"
-          },
-          "name": "Extra Large",
-          "size": "2.2rem",
+          "fluid": false,
+          "name": "20-24 Responsive",
+          "size": "clamp(2rem, 5vw, 2.4rem)",
+          "slug": "large-alt"
+        },
+        {
+          "fluid": false,
+          "name": "24-34 Responsive",
+          "size": "clamp(2.4rem, 5vw, 3.4rem)",
           "slug": "x-large"
         },
         {
-          "fluid": {
-            "max": "6rem",
-            "min": "4rem"
-          },
-          "name": "Extra Extra Large",
-          "size": "6rem",
+          "fluid": false,
+          "name": "28-38 Responsive",
+          "size": "clamp(2.8rem, 5vw, 3.8rem)",
+          "slug": "28-38"
+        },
+        {
+          "fluid": false,
+          "name": "38-44 Responsive",
+          "size": "clamp(3.8rem, 5vw, 4.4rem)",
           "slug": "xx-large"
+        },
+        {
+          "fluid": false,
+          "name": "32-55 Responsive",
+          "size": "clamp(3.2rem, 5vw, 5.5rem)",
+          "slug": "xxx-large"
         }
       ],
       "fontFamilies": [
@@ -203,7 +247,23 @@
       ]
     },
     "border": {
-      "radius": false
+      "width": true,
+      "color": true,
+      "radius": true
+    },
+    "shadow": {
+      "presets": [
+        {
+          "name": "Offset",
+          "slug": "offset",
+          "shadow": "0px 3px 11px 0 rgba(0, 0, 0, 0.25)"
+        },
+        {
+          "name": "Centered",
+          "slug": "centered",
+          "shadow": "0px 0px 11px 0 rgba(0, 0, 0, 0.25)"
+        }
+      ]
     },
     "useRootPaddingAwareAlignments": true
   },
@@ -221,7 +281,7 @@
     },
     "typography": {
       "fontFamily": "var:preset|font-family|open-sans",
-      "fontSize": "var:preset|font-size|large",
+      "fontSize": "var:preset|font-size|medium",
       "fontWeight": "400",
       "lineHeight": "1.5"
     },
@@ -235,10 +295,10 @@
         "spacing": {
           "blockGap": "16px",
           "padding": {
-            "bottom": "20px",
-            "left": "30px",
-            "right": "30px",
-            "top": "20px"
+            "top": "clamp(15px, 7vw, 20px)",
+            "right": "clamp(20px, 7vw, 40px)",
+            "bottom": "clamp(15px, 7vw, 20px)",
+            "left": "clamp(20px, 7vw, 40px)"
           }
         },
         "variations": {
@@ -252,20 +312,10 @@
             },
             "spacing": {
               "padding": {
-                "bottom": "calc(20px - 1px)",
-                "left": "calc(40px - 1px)",
-                "right": "calc(40px - 1px)",
-                "top": "calc(20px - 1px)"
-              }
-            }
-          },
-          "fill": {
-            "spacing": {
-              "padding": {
-                "bottom": "20px",
-                "left": "40px",
-                "right": "40px",
-                "top": "20px"
+                "top": "clamp(14px, 7vw, 19px)",
+                "right": "clamp(19px, 7vw, 39px)",
+                "bottom": "clamp(14px, 7vw, 19px)",
+                "left": "clamp(19px, 7vw, 39px)"
               }
             }
           }
@@ -458,6 +508,7 @@
       "core/list": {
         "css": "& li{margin-top: 1.5rem;}"
       },
+      "core/paragraph": {},
       "core/post-navigation-link": {
         "typography": {
           "fontSize": "var:preset|font-size|medium"
@@ -661,7 +712,7 @@
           "radius": "5px"
         },
         "typography": {
-          "fontSize": "var:preset|font-size|large",
+          "fontSize": "var:preset|font-size|medium",
           "textTransform": "uppercase",
           "fontFamily": "var:preset|font-family|montserrat",
           "fontWeight": "800"
@@ -676,7 +727,7 @@
       "h1": {
         "typography": {
           "fontFamily": "var:preset|font-family|montserrat",
-          "fontSize": "clamp(3rem, 5vw, 5.5rem)",
+          "fontSize": "var:preset|font-size|xxx-large",
           "lineHeight": "1.2",
           "fontWeight": "800"
         }
@@ -684,7 +735,7 @@
       "h2": {
         "typography": {
           "fontFamily": "var:preset|font-family|montserrat",
-          "fontSize": "clamp(2.8rem, 5vw, 4.4rem)",
+          "fontSize": "clamp(2.4rem, 5vw, 3.8rem)",
           "lineHeight": "1.2",
           "fontWeight": "900"
         }
@@ -701,7 +752,7 @@
         "typography": {
           "fontFamily": "var:preset|font-family|poppins",
           "fontSize": "clamp(2rem, 5vw, 2.8rem)",
-          "fontWeight": "400"
+          "fontWeight": "700"
         }
       },
       "h5": {
@@ -756,9 +807,14 @@
       "title": "Page No Title"
     },
     {
-      "name": "page-iv-active",
+      "name": "single-events",
+      "postTypes": ["post"],
+      "title": "Single Events"
+    },
+    {
+      "name": "page-no-first-read",
       "postTypes": ["page"],
-      "title": "IV Active"
+      "title": "Page No First Read"
     }
   ]
 }

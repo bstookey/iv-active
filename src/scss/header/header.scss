@@ -18,11 +18,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 0 0 3vw;
-    padding: 20px 0;
-
-    .headerReady & {
-      padding: 14px 0;
-    }
+    height: 70px;
 
     .wp-block-site-logo {
       display: flex;
@@ -170,6 +166,7 @@
             opacity: 0;
             visibility: hidden;
             z-index: -1;
+            margin: 0;
             @include global-transition();
 
             &.is-visible {
@@ -287,7 +284,7 @@
     }
 
     .mobile-menu-trigger {
-      margin-right: 7vw;
+      margin: 0 30px;
       position: relative;
       z-index: 100;
 
@@ -298,6 +295,10 @@
       @include media-breakpoint-up(lg) {
         display: none;
       }
+    }
+
+    @include media-breakpoint-up(xxl) {
+      height: 100px;
     }
   }
 }

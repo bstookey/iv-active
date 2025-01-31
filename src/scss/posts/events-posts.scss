@@ -2,15 +2,10 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 
-.blog-query,
-.related-posts-wrapper {
+.events-posts-wrapper {
   padding: 50px 0;
 
-  .related-title {
-    text-align: center;
-  }
-  ul.blog-posts,
-  ul.related-posts {
+  ul.events-posts {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -19,11 +14,7 @@
     padding: 0;
 
     li.wp-block-post {
-      flex: 0 1 284px;
-
-      &.related {
-        flex: 0 1 353px;
-      }
+      flex: 0 1 300px;
 
       .wp-block-group {
         @include box-shadow(
@@ -33,13 +24,16 @@
           0px,
           rgba(0, 0, 0, 0.25)
         ); // this is the default shadow
+        border-radius: 20px;
         padding: 15px !important;
         height: 100%;
         position: relative;
 
         .wp-block-post-featured-image {
-          @include aspect-ratio(255, 190);
+          @include aspect-ratio(270, 169);
           overflow: hidden;
+          border: 1px solid $aqua;
+          border-radius: 16px;
 
           img {
             position: absolute;
@@ -55,15 +49,20 @@
 
         .wp-block-post-title {
           line-height: 1.5;
-          padding: 0 16px 0;
           font-family: "Poppins", sans-serif;
           font-size: 18px;
           color: $black;
         }
 
         .wp-block-post-excerpt {
-          padding: 0 16px 20px;
+          padding: 0 20px 20px;
           font-size: 14px;
+        }
+
+        .detail-link {
+          color: $aqua;
+          font-family: "montserrrat", sans-serif;
+          font-weight: 600;
         }
 
         .wp-block-read-more {
@@ -84,24 +83,13 @@
             }
           }
           .wp-block-post-title {
+            //text-decoration: underline;
+          }
+
+          .detail-link {
             text-decoration: underline;
           }
         }
-      }
-    }
-  }
-
-  .load-more {
-    margin-top: 50px;
-    a {
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      text-decoration: none;
-      color: $neutraldark;
-
-      &:hover {
-        text-decoration: undeline;
-        color: $aqua;
       }
     }
   }
