@@ -1,11 +1,33 @@
 //**** CB Carousel ****//
 
+@use "../variables" as *;
+@use "../mixins" as *;
 .wp-block-cb-carousel {
   .slick-track {
     display: flex;
     .slick-slide {
       height: inherit !important;
       padding-bottom: 20px;
+    }
+  }
+
+  .slick-dots {
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+    li {
+      button {
+        &:before {
+          font-size: 14px;
+        }
+      }
+      &.slick-active {
+        button {
+          &:before {
+            color: $aqua;
+          }
+        }
+      }
     }
   }
 }

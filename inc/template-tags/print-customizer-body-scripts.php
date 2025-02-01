@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Display the customizer header scripts.
+ * Display the customizer body scripts.
  *
  * @package Wordpress
  *
@@ -23,7 +23,7 @@ function iv_active_print_customizer_body_scripts()
 
 	// Otherwise, echo the scripts!
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
-	echo get_post_content($scripts);
+	echo $scripts;
 }
 
-add_action('after_body', 'iv_active_print_customizer_body_scripts', 999);
+add_action('wp_body_open', 'iv_active_print_customizer_body_scripts', 999);

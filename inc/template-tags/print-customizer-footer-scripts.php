@@ -24,7 +24,7 @@ function iv_active_print_customizer_footer_scripts()
 
 	// Otherwise, echo the scripts!
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
-	echo get_post_content($scripts);
+	echo $scripts;
 }
 
 add_action('wp_footer', 'iv_active_print_customizer_footer_scripts', 999);

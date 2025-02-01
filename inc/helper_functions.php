@@ -9,7 +9,7 @@ function iv_active_get_theme_colors()
   darkgrey: #1f488d,
   mediumgray: #939393,
   lightgray: #e2e7ea,
-  lightpink: #f7f2f3,
+  lightpink: #f8f1f3,
   lightpurple: #eeeff4,
   neutraldark: #292828,
   black: #000000,

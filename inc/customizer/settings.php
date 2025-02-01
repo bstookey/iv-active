@@ -233,72 +233,6 @@ function iv_active_customize_header_announcement($wp_customize)
 }
 add_action('customize_register', 'iv_active_customize_header_announcement');
 
-/**
- * Register header search.
- *
- * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Manager.
- */
-function iv_active_customize_header_search($wp_customize)
-{
-	// Register a setting.
-	$wp_customize->add_setting(
-		'iv_active_search_checkbox',
-		array(
-			'capability' => 'edit_theme_options',
-			'sanitize_callback' => 'themeslug_search_checkbox',
-		)
-	);
-
-	$wp_customize->add_control(
-		'iv_active_search_checkbox',
-		array(
-			'label'       => esc_html__('Show Header Search', THEME_DOMAIN),
-			'type' => 'checkbox',
-			'description' => esc_html__('The search icon will display and will trigger a search form.', THEME_DOMAIN),
-			'section' => 'iv_active_header_section',
-		)
-	);
-
-	function themeslug_search_checkbox($checked)
-	{
-		// Boolean check.
-		return ((isset($checked) && true == $checked) ? true : false);
-	}
-}
-add_action('customize_register', 'iv_active_customize_header_search');
-
-/**
- * Register a checkbox footer setting.
- *
- * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Manager.
- */
-function iv_active_customize_footer_checkbox($wp_customize)
-{
-	// Register a setting.
-	$wp_customize->add_setting(
-		'iv_active_footer_checkbox',
-		array(
-			'capability' => 'edit_theme_options',
-			'sanitize_callback' => 'themeslug_sanitize_checkbox',
-		)
-	);
-
-	$wp_customize->add_control(
-		'iv_active_footer_checkbox',
-		array(
-			'type' => 'checkbox',
-			'section' => 'iv_active_footer_section',
-			'label' => __('Show the Astriata Footer Copyright'),
-		)
-	);
-
-	function themeslug_sanitize_checkbox($checked)
-	{
-		// Boolean check.
-		return ((isset($checked) && true == $checked) ? true : false);
-	}
-}
-add_action('customize_register', 'iv_active_customize_footer_checkbox');
 
 /**
  * Register copyright text setting.
@@ -388,69 +322,6 @@ function iv_active_customize_social_icons($wp_customize)
 add_action('customize_register', 'iv_active_customize_social_icons');
 
 /**
- * Register a default images.
- *
- * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Manager.
- */
-function iv_active_default_image_section($wp_customize)
-{
-	// Register a default banner image.
-	$wp_customize->add_setting(
-		'default_banner_image',
-		array(
-			'type' => 'theme_mod',
-			'default' => '',
-			//'sanitize_callback' => 'esc_url_raw',
-			'transport' => 'refresh',
-		)
-	);
-
-	// Create the setting field.
-	$wp_customize->add_control(new WP_Customize_Cropped_Image_Control(
-		$wp_customize,
-		'default_banner_image',
-		array(
-			'label' => __('Default Banner Image', THEME_DOMAIN),
-			'description' => esc_html__('This, in some cases will be used in some patterns and custom blocks FPO.', THEME_DOMAIN),
-			'section' => 'iv_active_default_image_section',
-			'settings' => 'default_banner_image',
-			'width'       => 1920,
-			'height'      => 1482,
-			'flex_width' => true, //Flexible Width
-			'flex_height' => true, // Flexible Heiht
-		)
-	));
-
-	// Register a default banner image.
-	$wp_customize->add_setting(
-		'default_post_image',
-		array(
-			'type' => 'theme_mod',
-			'default' => '',
-			//'sanitize_callback' => 'esc_url_raw',
-			'transport' => 'refresh',
-		)
-	);
-
-	// Create the setting field.
-	$wp_customize->add_control(new WP_Customize_Cropped_Image_Control(
-		$wp_customize,
-		'default_post_image',
-		array(
-			'label' => __('Default Post Image', THEME_DOMAIN),
-			'description' => esc_html__('This can be used, if needed, when a post image is not available', THEME_DOMAIN),
-			'section' => 'iv_active_default_image_section',
-			'settings' => 'default_post_image',
-			'width'       => 410,
-			'height'      => 260,
-			'flex_width' => true, //Flexible Width
-			'flex_height' => true, // Flexible Heiht
-		)
-	));
-}
-add_action('customize_register', 'iv_active_default_image_section');
-
-/**
  * Register additional scripts.
  *
  * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Manager.
@@ -458,12 +329,33 @@ add_action('customize_register', 'iv_active_default_image_section');
 
 function iv_active_customize_additional_scripts($wp_customize)
 {
+
+	// Register a Header scripts.
+	$wp_customize->add_setting(
+		'iv_active_header_scripts',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'iv_active_sanitize_js',
+		)
+	);
+
+	// Create the setting field.
+	$wp_customize->add_control(
+		'iv_active_header_scripts',
+		array(
+			'label'       => esc_html__('Header Scripts', THEME_DOMAIN),
+			'description' => esc_html__('Additional scripts to add to the top of the <head> tag. <script> tags requred.', THEME_DOMAIN),
+			'section'     => 'iv_active_additional_scripts_section',
+			'type'        => 'textarea',
+		)
+	);
+
 	// Register a setting.
 	$wp_customize->add_setting(
 		'iv_active_body_scripts',
 		array(
 			'default'           => '',
-			'sanitize_callback' => 'force_balance_tags',
+			'sanitize_callback' => 'iv_active_sanitize_js',
 		)
 	);
 
@@ -478,19 +370,12 @@ function iv_active_customize_additional_scripts($wp_customize)
 		)
 	);
 
-	$wp_customize->add_control(new Text_Editor_Custom_Control($wp_customize, 'my_custom_textarea', array(
-		'label'    => __('My Custom Textarea', 'mytheme'),
-		'section'  => 'my_custom_section',
-		'settings' => 'my_custom_textarea',
-		'description' => 'Enter your text here',
-	)));
-
 	// Register a setting.
 	$wp_customize->add_setting(
 		'iv_active_footer_scripts',
 		array(
 			'default'           => '',
-			'sanitize_callback' => 'force_balance_tags',
+			'sanitize_callback' => 'iv_active_sanitize_js',
 		)
 	);
 
@@ -504,6 +389,14 @@ function iv_active_customize_additional_scripts($wp_customize)
 			'type'        => 'textarea',
 		)
 	);
+
+	// Custom sanitization function allowing `<script>` tags
+	function iv_active_sanitize_js($input)
+	{
+		return wp_kses($input, array(
+			'script' => array() // Allows <script> tags
+		));
+	}
 }
 add_action('customize_register', 'iv_active_customize_additional_scripts');
 

@@ -15,3 +15,5 @@ function disable_wpautop_for_gutenberg()
 }
 
 add_filter('init', 'disable_wpautop_for_gutenberg', 9);
+
+add_filter('wpcf7_autop_or_not', '__return_false');

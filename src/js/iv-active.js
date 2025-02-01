@@ -30,7 +30,7 @@ APP.Utilities = (function () {
   // Improved Text Widow Eliminator using widowadjust.js
   const noWidows = (ele) => {
     wt.fix({
-      elements: "p",
+      elements: "p, .wp-block-post-title",
       chars: 10,
       method: "nbsp",
       event: "resize",
@@ -320,7 +320,7 @@ APP.Form = (function () {
 
   var actionEvents = function () {
     document.addEventListener(
-      "wpcf7submit",
+      "wpcf7mailsent",
       function (event) {
         //consoleLog(event.detail.inputs);
         $.each(event.detail.inputs, function (i, input) {
@@ -344,7 +344,7 @@ APP.Form = (function () {
       datatype: "json",
       success: function () {
         //consoleLog("Contact Added To HubSpot");
-        location = loc;
+        //location = loc;
       },
       error: function (xhr, textStatus, errorThrown) {
         //consoleLog(errorThrown);

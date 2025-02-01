@@ -15,6 +15,7 @@
     position: relative;
     width: 100%;
     display: block;
+    min-height: auto;
 
     img {
       border-radius: clamp-calc(768px, 1024px, 10px, 16px);
@@ -34,8 +35,8 @@
   }
   &.has-price {
     .wp-block-cover {
-      border-bottom: 20px solid $white;
       overflow: visible;
+      @include aspect-ratio(352, 352);
     }
     .price-group {
       width: 92px;
