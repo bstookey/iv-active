@@ -10,14 +10,12 @@
  */
 
 ?>
-<div class="container">
-    <div class="header-connect">
-        <div class="phone d-none"><a href="tel:<?php the_field('phone_number', 'option'); ?>"><?php the_field('phone_number', 'option'); ?></a></div>
-        <div class="phone ">Contact Us: <?php the_field('phone_number', 'option'); ?></div>
-        <div class="email"><a href="<?php the_field('email_address', 'option'); ?>" class="href"><?php print_svg([
+<div class="header-connect">
+    <div class="phone d-none"><a href="tel:<?php the_field('phone_number', 'option'); ?>"><?php the_field('phone_number', 'option'); ?></a></div>
+    <div class="phone ">Contact Us: <?php the_field('phone_number', 'option'); ?></div>
+    <div class="email"><a href="mailto:<?php the_field('email_address', 'option'); ?>" class="href"><?php print_svg([
                                                                                                         'icon' => 'envelope',
                                                                                                         'width'  => '26',
                                                                                                         'height' => '26'
                                                                                                     ]); ?>&nbsp;<?php the_field('email_address', 'option'); ?></a></div>
-    </div>
 </div>

@@ -19,6 +19,7 @@ $contactData = array(
     'firstname' => $firstname,
     'lastname' => $lastname,
     'phone' => $phone,
+    'list' => 'newsletter'
   )
 );
 

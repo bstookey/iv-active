@@ -1,0 +1,46 @@
+{
+    "key": "group_67a0f64491a9c",
+    "title": "Custom Code",
+    "fields": [
+        {
+            "key": "field_67a0f6450f4e4",
+            "label": "Custom Code",
+            "name": "custom_code",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Allows the use of code with <script> tags and custom html.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/custom-script-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1738602174
+}

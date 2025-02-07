@@ -191,7 +191,30 @@ function iv_active_acf_init()
       'mode'      => $mode_default,
       'supports' => array_merge($supports, array('align' => false)),
     ));
+
+    // Custom Script
+    acf_register_block_type(array(
+      'name'            => 'custom_script_block',
+      'title'           => __('Custom Code Block'),
+      'description'     => __('A block that allows custom JavaScript.'),
+      'category'        => 'formatting',
+      'icon'            => 'admin-tools',
+      'keywords'        => array('script', 'javascript'),
+      'render_template'  => $acf_block_path . 'custom-scripts.php',
+      'mode'      => $mode_default,
+      'supports'        => array(
+        'align'  => false,
+        'jsx'    => true, // Enables live preview in the editor
+      ),
+    ));
   }
+
+  function allow_script_tags($content)
+  {
+    return wp_kses_post($content); // Allows most tags, including <script>
+  }
+
+  add_filter('acf/format_value/name=custom_script', 'allow_script_tags', 10, 3);
 
   /** 
    * hide drafts for selecting posts via post post_status

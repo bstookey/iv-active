@@ -19,8 +19,8 @@ return array(
     'categories' => array('iv_blocks'),
     'keywords'    => ['product', 'group'],
     'content'    => '<!-- wp:group {"metadata":{"name":"Product Group"},"className":"product-group has-rounded-default","backgroundColor":"white","layout":{"type":"default"}} -->
-<div class="wp-block-group product-group has-rounded-default has-white-background-color has-background"><!-- wp:cover {"url":"http://localhost:8888/iv-active/wp-content/uploads/img-02.png","id":637,"dimRatio":0,"isUserOverlayColor":true,"isDark":false,"metadata":{"name":"Product Image"},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-637" alt="" src="http://localhost:8888/iv-active/wp-content/uploads/img-02.png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
+<div class="wp-block-group product-group has-rounded-default has-white-background-color has-background"><!-- wp:cover {"url":"https://staging2.danc125.sg-host.com/wp-content/uploads/img-02.png","id":637,"dimRatio":0,"isUserOverlayColor":true,"isDark":false,"metadata":{"name":"Product Image"},"layout":{"type":"constrained"}} -->
+<div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-637" alt="" src="https://staging2.danc125.sg-host.com/wp-content/uploads/img-02.png" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
 <p class="has-text-align-center has-large-font-size"></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->

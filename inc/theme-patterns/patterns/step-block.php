@@ -19,8 +19,8 @@ return array(
     'categories' => array('iv_blocks'),
     'keywords'    => ['step', 'slide'],
     'content'    => '<!-- wp:group {"metadata":{"name":"Step Block"},"className":"step-block","layout":{"type":"constrained"}} -->
-<div class="wp-block-group step-block"><!-- wp:cover {"url":"http://localhost:8888/iv-active/wp-content/uploads/High-Res-How-It-Works-Step-2.jpg","id":737,"dimRatio":0,"isUserOverlayColor":true,"contentPosition":"top left","isDark":false,"layout":{"type":"default"}} -->
-<div class="wp-block-cover is-light has-custom-content-position is-position-top-left"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-737" alt="" src="http://localhost:8888/iv-active/wp-content/uploads/High-Res-How-It-Works-Step-2.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"medium-alt"} -->
+<div class="wp-block-group step-block"><!-- wp:cover {"url":"https://staging2.danc125.sg-host.com/wp-content/uploads/High-Res-How-It-Works-Step-2.jpg","id":737,"dimRatio":0,"isUserOverlayColor":true,"contentPosition":"top left","isDark":false,"layout":{"type":"default"}} -->
+<div class="wp-block-cover is-light has-custom-content-position is-position-top-left"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-737" alt="" src="https://staging2.danc125.sg-host.com/wp-content/uploads/High-Res-How-It-Works-Step-2.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"medium-alt"} -->
 <p class="has-text-align-center has-medium-alt-font-size">Step 2</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->

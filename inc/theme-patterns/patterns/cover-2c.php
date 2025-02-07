@@ -16,12 +16,10 @@ return array(
     'title'      => __('First Read Two Column', THEME_DOMAIN),
     'description' => __('A cover block with two columns.', THEME_DOMAIN),
     'categories' => array('iv_first_read'),
-    'content'    => '
-<!-- wp:cover {"url":"http://localhost:8888/iv-active/wp-content/uploads/bg59-2880w.webp","id":251,"dimRatio":0,"isUserOverlayColor":true,"focalPoint":{"x":0.5,"y":0.5},"metadata":{"categories":["banner"],"patternName":"core/cover-image-with-bold-heading-and-button-left","name":"IV First Read / 2 Col"},"align":"full","className":"first-read","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0"}},"color":[]}} -->
-<div class="wp-block-cover alignfull first-read" style="margin-top:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-251" alt="" src="http://localhost:8888/iv-active/wp-content/uploads/bg59-2880w.webp" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%"/><div class="wp-block-cover__inner-container"><!-- wp:group {"metadata":{"name":"First Read Content"},"className":"is-style-container","style":{"spacing":{"blockGap":"48px","padding":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-group is-style-container" style="padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"metadata":{"name":"Bootstrap Row"},"className":"row"} -->
-<div class="wp-block-columns row"><!-- wp:column {"className":"col-lg-7"} -->
-<div class="wp-block-column col-lg-7"><!-- wp:heading {"level":1,"textColor":"white"} -->
+    'content'    => '<!-- wp:cover {"url":"http://staging2.danc125.sg-host.com/wp-content/uploads/bg-59-2880w.webp","id":837,"dimRatio":0,"isUserOverlayColor":true,"focalPoint":{"x":0.5,"y":0},"metadata":{"categories":["banner"],"patternName":"core/cover-image-with-bold-heading-and-button-left","name":"IV First Read / 2 Col"},"align":"full","className":"first-read","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"var:preset|spacing|50","left":"0"},"margin":{"top":"0"}},"color":[]},"layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull first-read" style="margin-top:0;padding-top:0;padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-837" alt="" src="http://staging2.danc125.sg-host.com/wp-content/uploads/bg-59-2880w.webp" style="object-position:50% 0%" data-object-fit="cover" data-object-position="50% 0%"/><div class="wp-block-cover__inner-container"><!-- wp:columns {"metadata":{"name":"First Read Columns"}} -->
+<div class="wp-block-columns"><!-- wp:column {"metadata":{"name":"First Read Content"}} -->
+<div class="wp-block-column"><!-- wp:heading {"level":1,"textColor":"white"} -->
 <h1 class="wp-block-heading has-white-color has-text-color">Feel Better Faster</h1>
 <!-- /wp:heading -->
 
@@ -48,12 +46,11 @@ return array(
 <!-- /wp:buttons --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"className":"col-lg-5"} -->
-<div class="wp-block-column col-lg-5"><!-- wp:image {"id":632,"sizeSlug":"large","linkDestination":"none","className":"is-style-default"} -->
-<figure class="wp-block-image size-large is-style-default"><img src="http://localhost:8888/iv-active/wp-content/uploads/IMG_7272-901x1024.jpg" alt="" class="wp-image-632"/></figure>
+<!-- wp:column {"metadata":{"name":"First Read Image"}} -->
+<div class="wp-block-column"><!-- wp:image {"id":869,"sizeSlug":"large","linkDestination":"none","className":"is-style-default"} -->
+<figure class="wp-block-image size-large is-style-default"><img src="http://staging2.danc125.sg-host.com/wp-content/uploads/IMG_7272-1920w-901x1024.webp" alt="" class="wp-image-869"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
-<!-- /wp:columns --></div>
-<!-- /wp:group --></div></div>
+<!-- /wp:columns --></div></div>
 <!-- /wp:cover -->',
 );

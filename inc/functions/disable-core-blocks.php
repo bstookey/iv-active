@@ -12,6 +12,7 @@ function filter_register_block_type_args(array $args, string $block_type)
     // Array of block types to disable
     $disabled_blocks = array(
         //'core/footnotes',
+        //'core/columns',
         // Add more block types to disable as needed 
         // wp.blocks.getBlockTypes().forEach( function( blockType ){ console.log( blockType.name ); }); 
     );

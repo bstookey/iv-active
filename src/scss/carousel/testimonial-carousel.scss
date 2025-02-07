@@ -98,8 +98,6 @@
     .vertical-carousel {
       &.carousel {
         .carousel-inner {
-          max-width: 80%;
-          margin: auto;
           .carousel-item {
             opacity: 0;
             transition-duration: 0.6s;

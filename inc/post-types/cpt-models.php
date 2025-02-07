@@ -85,6 +85,6 @@ $locations->add_taxonomy(
     '_'
 );
 
-$locations->register();
+//$locations->register();
 $testimonials->register();
 $events->register();

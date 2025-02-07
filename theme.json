@@ -802,13 +802,8 @@
   ],
   "customTemplates": [
     {
-      "name": "page-no-title",
-      "postTypes": ["page"],
-      "title": "Page No Title"
-    },
-    {
       "name": "single-events",
-      "postTypes": ["post"],
+      "postTypes": ["events"],
       "title": "Single Events"
     },
     {

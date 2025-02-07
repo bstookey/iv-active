@@ -19,7 +19,7 @@ return array(
     'keywords'    => ['cta', 'image'],
     'content'    => '<!-- wp:group {"metadata":{"name":"Image/Title CTA"},"className":"image-title-cta is-link","layout":{"type":"constrained"}} -->
 <div class="wp-block-group image-title-cta is-link"><!-- wp:image {"id":436,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="http://localhost:8888/iv-active/wp-content/uploads/shutterstock_2188096049-1920w.webp" alt="" class="wp-image-436"/></figure>
+<figure class="wp-block-image size-full"><img src="https://staging2.danc125.sg-host.com/wp-content/uploads/shutterstock_2188096049-1920w.webp" alt="" class="wp-image-436"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"textAlign":"center","style":{"typography":{"fontWeight":"700","fontStyle":"normal"}},"fontSize":"large"} -->

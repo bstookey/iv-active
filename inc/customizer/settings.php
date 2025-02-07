@@ -394,7 +394,11 @@ function iv_active_customize_additional_scripts($wp_customize)
 	function iv_active_sanitize_js($input)
 	{
 		return wp_kses($input, array(
-			'script' => array() // Allows <script> tags
+			'script' => array(), // Allows <script> tags
+			'link' => array(
+				'rel' => array(),
+				'href' => array(),
+			), // Allows <link> tags with necessary attributes
 		));
 	}
 }
