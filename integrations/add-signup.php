@@ -10,6 +10,7 @@ $email = $_POST['email'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
+$list = "newsletter";
 
 
 // Create the contact data array
@@ -19,7 +20,7 @@ $contactData = array(
     'firstname' => $firstname,
     'lastname' => $lastname,
     'phone' => $phone,
-    'list' => 'newsletter'
+    'list_enrollment' => $list
   )
 );
 
