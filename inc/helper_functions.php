@@ -1,5 +1,5 @@
 <?php
-function iv_active_get_theme_colors()
+function happytapir_get_theme_colors()
 {
     // these colors are copied from src > scss > global > variables
     $colors = '(

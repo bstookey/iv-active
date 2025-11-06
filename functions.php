@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Wordpress
- * @subpackage IV Active
+ * @subpackage Happy Tapir Press
  * @since  1.0
  * 
  */
@@ -18,7 +18,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // change this to 'your_domain'
-define('THEME_DOMAIN', 'iv-active');
+define('THEME_DOMAIN', 'happytapir');
 
 // set up the path to your svg sprite declared in your webpack.mix.js file
 define('ICON_PATH', '/assets/images/icons/sprite.svg');
@@ -68,7 +68,7 @@ function theme_init()
 theme_init();
 
 // Registers block binding sources.
-if (! function_exists('iv_active_register_block_bindings')) :
+if (! function_exists('happytapir_register_block_bindings')) :
 	/**
 	 * Registers the post format block binding source.
 	 *
@@ -76,13 +76,13 @@ if (! function_exists('iv_active_register_block_bindings')) :
 	 *
 	 * @return void
 	 */
-	function iv_active_register_block_bindings()
+	function happytapir_register_block_bindings()
 	{
 		register_block_bindings_source(
-			'iv_active/format',
+			'happytapir/format',
 			array(
-				'label'              => _x('Post format name', 'Label for the block binding placeholder in the editor', 'iv_active'),
-				'get_value_callback' => 'iv_active_format_binding',
+				'label'              => _x('Post format name', 'Label for the block binding placeholder in the editor', 'happytapir'),
+				'get_value_callback' => 'happytapir_format_binding',
 			)
 		);
 	}

@@ -6,11 +6,11 @@
  * @package Wordpress
  */
 
-function iv_active_display_search()
+function happytapir_display_search()
 {
 
     // Get our button setting.
-    $button_setting = get_theme_mod('iv_active_search_checkbox');
+    $button_setting = get_theme_mod('happytapir_search_checkbox');
 
     // If we have no button displayed, don't display the markup.
     if (!$button_setting) {

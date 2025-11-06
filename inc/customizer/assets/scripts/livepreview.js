@@ -50,7 +50,7 @@
   });
 
   // Copyright text.
-  api("iv_active_copyright_text", function (value) {
+  api("happytapir_copyright_text", function (value) {
     value.bind(function (to) {
       $(".site-info").text(to);
     });

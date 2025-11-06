@@ -2,21 +2,20 @@
 
 /**
  * Title: Bootstrap 3 Col
- * Slug: iv-active/bootstrap-3-col
- * Categories: IV-Active Patterns
+ * Slug: happytapir/bootstrap-3-col
+ * Categories: Happy Tapir Patterns
  * Description: Bootstrap 2 Column Layout.
  * Keywords: bootstrap, columns
  *
- * @package IV Active
- * @since IV Active 1.0
- * @since IV Active 1.0
+ * @package Happy Tapir Press
+ * @since Happy Tapir Press 1.0
  */
 
 return array(
     'title'      => __('Bootstrap 3 Col', THEME_DOMAIN),
     'name'      => __('bootstrap-3-col', THEME_DOMAIN),
     'description' => __('A Bootstrap 3 column layout.', THEME_DOMAIN),
-    'categories' => array('iv_bootstrap'),
+    'categories' => array('happytapir_bootstrap'),
     'keywords'    => ['columns', 'bootstrap', 'container'],
     'content'    => '<!-- wp:group {"metadata":{"name":"Bootstrap Container"},"className":"is-style-default","layout":{"type":"constrained"}} -->
 <div class="wp-block-group is-style-default">

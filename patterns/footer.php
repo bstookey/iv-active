@@ -2,14 +2,14 @@
 
 /**
  * Title: Footer
- * Slug: iv-active/footer
+ * Slug: happytapir/footer
  * Categories: footer
  * Block Types: core/template-part/footer
  * Description: Footer columns with logo, and links.
  *
  * @package WordPress
- * @subpackage IV Active
- * @since IV Active 1.0
+ * @subpackage Happy Tapir Press
+ * @since Happy Tapir Press 1.0
  */
 
 ?>
@@ -22,7 +22,7 @@
 				<div class="wp-block-group alignfull"><!-- wp:site-logo /-->
 
 					<!-- wp:paragraph -->
-					<p>IV Active is a mobile IV therapy provider in NWPA. Our companies mission is to enable our clients to achieve optimal health and wellness through offering high quality IV Therapy solutions. We commit to providing excellent customer service and an extraordinary client experience at every visit. Our goal is to keep our clients active.</p>
+					<p>Happy Tapir Press is a mobile IV therapy provider in NWPA. Our companies mission is to enable our clients to achieve optimal health and wellness through offering high quality IV Therapy solutions. We commit to providing excellent customer service and an extraordinary client experience at every visit. Our goal is to keep our clients active.</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -39,7 +39,7 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:image {"id":274,"width":"197px","sizeSlug":"full","linkDestination":"none"} -->
-				<figure class="wp-block-image size-full is-resized"><img src="http://localhost:8888/iv-active/wp-content/uploads/accepted-cards.webp" alt="" class="wp-image-274" style="width:197px" /></figure>
+				<figure class="wp-block-image size-full is-resized"><img src="http://localhost:8888/happytapir/wp-content/uploads/accepted-cards.webp" alt="" class="wp-image-274" style="width:197px" /></figure>
 				<!-- /wp:image -->
 			</div>
 			<!-- /wp:column -->
@@ -71,9 +71,6 @@
 
 						<!-- wp:acf/footer-social-block {"name":"acf/footer-social-block","align":"full","mode":"preview"} /-->
 
-						<!-- wp:image {"id":275,"sizeSlug":"full","linkDestination":"none"} -->
-						<figure class="wp-block-image size-full"><img src="http://localhost:8888/iv-active/wp-content/uploads/image71-93w.webp" alt="" class="wp-image-275" /></figure>
-						<!-- /wp:image -->
 					</div>
 					<!-- /wp:column -->
 				</div>
@@ -88,13 +85,8 @@
 		<!-- /wp:separator -->
 
 		<!-- wp:group {"metadata":{"name":"Disclaimer"},"className":"disclaimer is-style-container-sm","fontSize":"small","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group disclaimer is-style-container-sm has-small-font-size"><!-- wp:paragraph {"align":"center"} -->
-			<p class="has-text-align-center">Disclaimer</p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:paragraph {"align":"center"} -->
-			<p class="has-text-align-center">The products and/or services provided by our medical staff are not intended to diagnose, treat, cure or prevent any disease. Always consult your medical provider before beginning any therapy program. All medications and vitamin supplements are provided by federally regulated 503B compounding pharmacies and/or licensed medical distributors.</p>
-			<!-- /wp:paragraph -->
+		<div class="wp-block-group disclaimer is-style-container-sm has-small-font-size">
+			<!-- wp:acf/footer-disclaimer-block {"name":"acf/footer-disclaimer-block","align":"full","mode":"preview"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
@@ -105,7 +97,6 @@
 <!-- wp:group {"metadata":{"name":"Copyright Wrapper"},"className":"copyright","layout":{"type":"constrained"}} -->
 <div class="wp-block-group copyright"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 	<div class="wp-block-group"><!-- wp:acf/footer-copyright-block {"name":"acf/footer-copyright-block","align":"full","mode":"preview"} /-->
-
 		<!-- wp:navigation {"ref":285,"overlayMenu":"never"} /-->
 	</div>
 	<!-- /wp:group -->

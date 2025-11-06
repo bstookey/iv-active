@@ -30,7 +30,7 @@ function auto_copyright($year = 'auto')
 function display_copyright_text()
 {
     // Grab our customizer settings.
-    $copyright_text = get_theme_mod('iv_active_copyright_text');
+    $copyright_text = get_theme_mod('happytapir_copyright_text');
 
     // Stop if there's nothing to display.
     if (!$copyright_text) {

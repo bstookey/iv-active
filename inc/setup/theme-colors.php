@@ -8,11 +8,11 @@
  * 
  */
 
-function iv_active_get_theme_colors_gutenberg()
+function happytapir_get_theme_colors_gutenberg()
 {
 
     // Grab our theme colors from the inc > helper_functions.
-    $colors = iv_active_get_theme_colors();
+    $colors = happytapir_get_theme_colors();
     //print_r($colors);
 
     if (!$colors) {
@@ -31,4 +31,4 @@ function iv_active_get_theme_colors_gutenberg()
 }
 
 // Gutenberg color palette support.
-add_theme_support('editor-color-palette', iv_active_get_theme_colors_gutenberg());
+add_theme_support('editor-color-palette', happytapir_get_theme_colors_gutenberg());

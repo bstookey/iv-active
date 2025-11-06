@@ -1,7 +1,7 @@
 {
-  "name": "iv_active",
+  "name": "happytapir",
   "version": "1.0.0",
-  "description": "IV Active WP Migration",
+  "description": "Happy Tapir Press WP Migration",
   "author": "Bradley Stookey",
   "license": "GPL-2.0-or-later",
   "browserslist": [

@@ -6,8 +6,8 @@
  * @package Wordpress
  */
 
-if (!function_exists('iv_active_posted_on')) :
-    function iv_active_posted_on()
+if (!function_exists('happytapir_posted_on')) :
+    function happytapir_posted_on()
     {
         $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
         if (get_the_time('U') !== get_the_modified_time('U')) {
@@ -24,13 +24,13 @@ if (!function_exists('iv_active_posted_on')) :
 
         $posted_on = sprintf(
             /* translators: the date the post was published */
-            esc_html_x('%s', 'post date', 'iv_active'),
+            esc_html_x('%s', 'post date', 'happytapir'),
             '<div>' . $time_string . '</div>'
         );
 
         $byline = sprintf(
             /* translators: the post author */
-            esc_html_x('by %s', 'post author', 'iv_active'),
+            esc_html_x('by %s', 'post author', 'happytapir'),
             '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
         );
 

@@ -11,10 +11,10 @@
  * 
  */
 
-function iv_active_print_customizer_header_scripts()
+function happytapir_print_customizer_header_scripts()
 {
 	// Check for header scripts.
-	$scripts = get_theme_mod('iv_active_header_scripts');
+	$scripts = get_theme_mod('happytapir_header_scripts');
 
 	// None? Bail...
 	if (!$scripts) {
@@ -26,4 +26,4 @@ function iv_active_print_customizer_header_scripts()
 	echo $scripts;
 }
 
-add_action('wp_head', 'iv_active_print_customizer_header_scripts', 1);
+add_action('wp_head', 'happytapir_print_customizer_header_scripts', 1);

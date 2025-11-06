@@ -12,10 +12,10 @@
  * 
  */
 
-function iv_active_print_customizer_footer_scripts()
+function happytapir_print_customizer_footer_scripts()
 {
 	// Check for footer scripts.
-	$scripts = get_theme_mod('iv_active_footer_scripts');
+	$scripts = get_theme_mod('happytapir_footer_scripts');
 
 	// None? Bail...
 	if (!$scripts) {
@@ -27,4 +27,4 @@ function iv_active_print_customizer_footer_scripts()
 	echo $scripts;
 }
 
-add_action('wp_footer', 'iv_active_print_customizer_footer_scripts', 999);
+add_action('wp_footer', 'happytapir_print_customizer_footer_scripts', 999);

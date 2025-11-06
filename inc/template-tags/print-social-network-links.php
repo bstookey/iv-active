@@ -25,7 +25,8 @@ function print_social_network_links()
 		'youtube',
 		'tiktok',
 		'pinterest',
-		'snapchat'
+		'snapchat',
+		'etsy'
 	];
 
 ?>

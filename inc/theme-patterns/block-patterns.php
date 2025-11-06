@@ -10,10 +10,10 @@
 function theme_register_block_patterns()
 {
 	$block_pattern_categories = array(
-		'iv_first_read' => array('label' => __('IV-Active First Read', THEME_DOMAIN)),
-		'iv_callout' => array('label' => __('IV-Active Callouts', THEME_DOMAIN)),
-		'iv_blocks' => array('label' => __('IV-Active Blocks', THEME_DOMAIN)),
-		'iv_bootstrap' => array('label' => __('IV-Active Bootstrap', THEME_DOMAIN)),
+		'happytapir_first_read' => array('label' => __('Happy Tapir Press First Read', THEME_DOMAIN)),
+		'happytapir_callout' => array('label' => __('Happy Tapir Press Callouts', THEME_DOMAIN)),
+		'happytapir_blocks' => array('label' => __('Happy Tapir Press Blocks', THEME_DOMAIN)),
+		'happytapir_bootstrap' => array('label' => __('Happy Tapir Press Bootstrap', THEME_DOMAIN)),
 	);
 
 	/**
@@ -35,21 +35,9 @@ function theme_register_block_patterns()
 	 */
 
 	$block_patterns = array(
-		'bootstrap-50-50',
+		'bootstrap-2-col',
 		'bootstrap-3-col',
 		'bootstrap-4-col',
-		'cover-2c',
-		'cover-page',
-		'cover-cta-block',
-		'cover-form-block',
-		'list-checkmark',
-		'list-checkmark-circle',
-		'list-large-numbered',
-		'content-post', // query block
-		'step-block',
-		'image-title-cta',
-		'first-read-page-2c',
-		'form-with_background'
 	);
 
 	$block_patterns = apply_filters('theme_block_patterns', $block_patterns);
@@ -58,7 +46,7 @@ function theme_register_block_patterns()
 		$pattern_file = 'patterns/' . $block_pattern . '.php';
 
 		register_block_pattern(
-			'iv-active/' . $block_pattern,
+			'happytapir/' . $block_pattern,
 			require $pattern_file
 		);
 	}

@@ -12,7 +12,7 @@
  * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Class.
  */
 
-function iv_active_customize_panels($wp_customize)
+function happytapir_customize_panels($wp_customize)
 {
 
 	// Register a new panel.
@@ -27,4 +27,4 @@ function iv_active_customize_panels($wp_customize)
 		)
 	);
 }
-add_action('customize_register', 'iv_active_customize_panels');
+add_action('customize_register', 'happytapir_customize_panels');

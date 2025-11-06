@@ -3,9 +3,7 @@
 @use "../mixins" as *;
 
 .site-footer {
-  background-color: $neutraldark;
-  border-radius: 40px 40px 0 0;
-  color: $white;
+  background-color: $lightgrey;
   padding-top: clamp-calc(768px, 1024px, 32px, 40px);
   margin-top: clamp-calc(768px, 1024px, 50px, 100px);
   font-size: 14px;
@@ -21,8 +19,8 @@
     margin-bottom: 20px;
 
     .custom-logo-link {
-      width: 166px;
-      @include aspect-ratio(166, 33);
+      width: 66px;
+      @include aspect-ratio(1, 1);
       display: block;
       position: relative;
 
@@ -56,7 +54,6 @@
         align-items: center;
         gap: 15px;
         text-decoration: none;
-        color: $white;
         flex: 1 0 100%;
       }
       span {
@@ -85,7 +82,6 @@
         align-items: center;
         gap: 15px;
         text-decoration: none;
-        color: $white;
         flex: 1 0 100%;
 
         &:hover {
@@ -115,7 +111,7 @@
 
     li {
       a {
-        color: $white;
+        color: $black;
 
         &:hover {
           color: $aqua;

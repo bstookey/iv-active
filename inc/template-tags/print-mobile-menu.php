@@ -6,7 +6,7 @@
  * @package Wordpress
  */
 
-function iv_active_display_mobile_menu()
+function happytapir_display_mobile_menu()
 {
 	// Bail if no mobile or primary menus are set.
 	if (!has_nav_menu('mobile') && !has_nav_menu('primary')) {

@@ -73,7 +73,7 @@ function get_svg($args = [])
 	$width        = ($args['width']) ? ' width="' . $args['width'] . '"' : '';
 
 	// Define the version variable
-	$svg_version = IV_ACTIVE_THEME_VERSION; // Update this version when the sprite changes
+	$svg_version = HAPPY_TAPIR_THEME_VERSION; // Update this version when the sprite changes
 
 	// Start a buffer...
 	ob_start();

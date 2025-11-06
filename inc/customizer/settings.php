@@ -11,11 +11,11 @@
  *
  * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Manager.
  */
-function iv_active_customize_header_announcement($wp_customize)
+function happytapir_customize_header_announcement($wp_customize)
 {
 	// Register a setting.
 	$wp_customize->add_setting(
-		'iv_active_announcement_checkbox',
+		'happytapir_announcement_checkbox',
 		array(
 			'capability' => 'edit_theme_options',
 			'sanitize_callback' => 'themeslug_announce_checkbox',
@@ -23,12 +23,12 @@ function iv_active_customize_header_announcement($wp_customize)
 	);
 
 	$wp_customize->add_control(
-		'iv_active_announcement_checkbox',
+		'happytapir_announcement_checkbox',
 		array(
 			'label'       => esc_html__('Show Announcement', THEME_DOMAIN),
 			'type' => 'checkbox',
 			'description' => esc_html__('The announcement bar will be diplayed with the below option of using a cookie name.', THEME_DOMAIN),
-			'section' => 'iv_active_announcement_section',
+			'section' => 'happytapir_announcement_section',
 		)
 	);
 
@@ -40,7 +40,7 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Register a setting.
 	$wp_customize->add_setting(
-		'iv_active_announcement_text',
+		'happytapir_announcement_text',
 		array(
 			'default'           => 'This is a basic theme announcement banner. You can manage this in the Customizer to include a link to a page, or a custom link. It uses a default cookie length of 7 days.',
 			'sanitize_callback' => 'wp_kses_post',
@@ -49,31 +49,31 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Create the setting field.
 	$wp_customize->add_control(
-		'iv_active_announcement_text',
+		'happytapir_announcement_text',
 		array(
 			'label'       => esc_html__('Announcement Text', THEME_DOMAIN),
 			'description' => esc_html__('The announcement text will be displayed in the header. Basic HTML tags allowed.', THEME_DOMAIN),
-			'section' => 'iv_active_announcement_section',
+			'section' => 'happytapir_announcement_section',
 			'type'    => 'textarea',
 		)
 	);
 
 	// Register a setting.
 	$wp_customize->add_setting(
-		'iv_active_link_type',
+		'happytapir_link_type',
 		array(
 			'default'           => '',
-			'sanitize_callback' => 'iv_active_sanitize_select',
+			'sanitize_callback' => 'happytapir_sanitize_select',
 		)
 	);
 
 	// Create the setting field.
 	$wp_customize->add_control(
-		'iv_active_link_type',
+		'happytapir_link_type',
 		array(
 			'label'       => esc_html__('Announcement Link', THEME_DOMAIN),
 			'description' => esc_html__('Display a custom link at the end of the announcement text.', THEME_DOMAIN),
-			'section'     => 'iv_active_announcement_section',
+			'section'     => 'happytapir_announcement_section',
 			'type'        => 'select',
 			'choices'     => array(
 				'none'   => esc_html__('No link', THEME_DOMAIN),
@@ -85,7 +85,7 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Register a setting for the URL.
 	$wp_customize->add_setting(
-		'iv_active_link_type_url',
+		'happytapir_link_type_url',
 		array(
 			'default'           => '',
 			'sanitize_callback' => 'esc_url',
@@ -96,13 +96,13 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Display the URL field... maybe!
 	$wp_customize->add_control(
-		'iv_active_link_type_url',
+		'happytapir_link_type_url',
 		array(
 			'label'           => esc_html__('Announcement Link URL', THEME_DOMAIN),
 			'description'     => esc_html__('Enter the URL or email address to be used by the link in the header.', THEME_DOMAIN),
-			'section'         => 'iv_active_announcement_section',
+			'section'         => 'happytapir_announcement_section',
 			'type'            => 'url',
-			'active_callback' => 'iv_active_customizer_is_header_announcement_url', // Only displays if the Link option is selected above.
+			'active_callback' => 'happytapir_customizer_is_header_announcement_url', // Only displays if the Link option is selected above.
 		)
 	);
 
@@ -119,15 +119,15 @@ function iv_active_customize_header_announcement($wp_customize)
 		array(
 			'label'    => __('Select a Page', THEME_DOMAIN),
 			'description'     => esc_html__('Select a page address to be used by the link in the header.', THEME_DOMAIN),
-			'section'         => 'iv_active_announcement_section',
+			'section'         => 'happytapir_announcement_section',
 			'type'     => 'dropdown-pages',
-			'active_callback' => 'iv_active_customizer_is_header_announcement_page', // Only displays if the Link option is selected above.
+			'active_callback' => 'happytapir_customizer_is_header_announcement_page', // Only displays if the Link option is selected above.
 		)
 	);
 
 	// Register a setting for the link text.
 	$wp_customize->add_setting(
-		'iv_active_link_type_text',
+		'happytapir_link_type_text',
 		array(
 			'default'           => 'Learn More',
 			'sanitize_callback' => 'wp_kses_post',
@@ -136,22 +136,22 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Display the text field... maybe!
 	$wp_customize->add_control(
-		'iv_active_link_type_text',
+		'happytapir_link_type_text',
 		array(
 			'label'           => esc_html__('Link Text', THEME_DOMAIN),
 			'description'     => esc_html__('Enter the text to be displayed in the button in the announcement.', THEME_DOMAIN),
-			'section'         => 'iv_active_announcement_section',
+			'section'         => 'happytapir_announcement_section',
 			'type'            => 'text',
 			'input_attrs' => array(
 				'placeholder' => __('Learn More'),
 			),
-			'active_callback' => 'iv_active_customizer_is_header_announcement_link', // Only displays if the Link option is selected above.
+			'active_callback' => 'happytapir_customizer_is_header_announcement_link', // Only displays if the Link option is selected above.
 		)
 	);
 
 	// Register a setting for the link text.
 	$wp_customize->add_setting(
-		'iv_active_cookie_name',
+		'happytapir_cookie_name',
 		array(
 			'default'           => 'announcement-cookie',
 			'sanitize_callback' => 'custom_sanitize_callback',
@@ -160,18 +160,18 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Display the text field... maybe!
 	$wp_customize->add_control(
-		'iv_active_cookie_name',
+		'happytapir_cookie_name',
 		array(
 			'label'           => esc_html__('Cookie Name', THEME_DOMAIN),
 			'description'     => esc_html__('Changing the name of the cookie will allow display of new announcements regardles of the users current set cookie.', THEME_DOMAIN),
-			'section'         => 'iv_active_announcement_section',
+			'section'         => 'happytapir_announcement_section',
 			'type'            => 'text',
 		)
 	);
 
 	// Register a setting for the link text.
 	$wp_customize->add_setting(
-		'iv_active_cookie_duration',
+		'happytapir_cookie_duration',
 		array(
 			'default'           => 7,
 			'sanitize_callback' => 'themeslug_sanitize_number_absint',
@@ -180,21 +180,21 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Display the text field... maybe!
 	$wp_customize->add_control(
-		'iv_active_cookie_duration',
+		'happytapir_cookie_duration',
 		array(
 			'label'           => esc_html__('Cookie Duration', THEME_DOMAIN),
 			'description'     => esc_html__('The ammount of days the user can hide the announcement.', THEME_DOMAIN),
-			'section'         => 'iv_active_announcement_section',
+			'section'         => 'happytapir_announcement_section',
 			'type'            => 'number',
 		)
 	);
 
 	// Add the "Choose a Theme Color" select control
-	$theme_colors = iv_active_get_theme_colors(); // Get the theme colors
+	$theme_colors = happytapir_get_theme_colors(); // Get the theme colors
 
 	// Register a setting for the color selection
 	$wp_customize->add_setting(
-		'iv_active_announcement_color',
+		'happytapir_announcement_color',
 		array(
 			'default'           => 'lightpink', // Default to the first color
 			'sanitize_callback' => 'sanitize_key',
@@ -203,11 +203,11 @@ function iv_active_customize_header_announcement($wp_customize)
 
 	// Create the select control to choose from available colors (using keys as labels)
 	$wp_customize->add_control(
-		'iv_active_announcement_color',
+		'happytapir_announcement_color',
 		array(
 			'label'    => esc_html__('Select Theme Color for Announcement', THEME_DOMAIN),
-			'section'  => 'iv_active_announcement_section',
-			'settings' => 'iv_active_announcement_color',
+			'section'  => 'happytapir_announcement_section',
+			'settings' => 'happytapir_announcement_color',
 			'type'     => 'select',
 			'choices'  => array_combine(array_keys($theme_colors), array_map(function ($key, $hex) {
 				return $key . ' (' . $hex . ')'; // Show key and hex code together
@@ -231,7 +231,7 @@ function iv_active_customize_header_announcement($wp_customize)
 		return ($number ? $number : $setting->default);
 	}
 }
-add_action('customize_register', 'iv_active_customize_header_announcement');
+add_action('customize_register', 'happytapir_customize_header_announcement');
 
 
 /**
@@ -239,12 +239,12 @@ add_action('customize_register', 'iv_active_customize_header_announcement');
  *
  * @param object $wp_customize Instance of WP_Customize_Class.
  */
-function iv_active_customize_copyright_text($wp_customize)
+function happytapir_customize_copyright_text($wp_customize)
 {
 
 	// Register a setting.
 	$wp_customize->add_setting(
-		'iv_active_copyright_text',
+		'happytapir_copyright_text',
 		array(
 			'default'           => '',
 			'sanitize_callback' => 'wp_kses_post',
@@ -253,28 +253,28 @@ function iv_active_customize_copyright_text($wp_customize)
 
 	// Create the setting field.
 	$wp_customize->add_control(
-		'iv_active_copyright_text',
+		'happytapir_copyright_text',
 		array(
 			'label'       => esc_html__('Copyright Text', THEME_DOMAIN),
 			'description' => esc_html__('The copyright text will be displayed in the footer. Basic HTML tags allowed.', THEME_DOMAIN),
-			'section' => 'iv_active_footer_section',
+			'section' => 'happytapir_footer_section',
 			'type'    => 'textarea',
 		)
 	);
 }
-add_action('customize_register', 'iv_active_customize_copyright_text');
+add_action('customize_register', 'happytapir_customize_copyright_text');
 
 /**
  * Register a social icons setting.
  *
  * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Manager.
  */
-function iv_active_customize_social_icons($wp_customize)
+function happytapir_customize_social_icons($wp_customize)
 {
 
 	// Register a setting.
 	$wp_customize->add_setting(
-		'iv_active_social_menu_checkbox',
+		'happytapir_social_menu_checkbox',
 		array(
 			'capability' => 'edit_theme_options',
 			'sanitize_callback' => 'themeslug_sanitize_checkbox',
@@ -282,10 +282,10 @@ function iv_active_customize_social_icons($wp_customize)
 	);
 
 	$wp_customize->add_control(
-		'iv_active_social_menu_checkbox',
+		'happytapir_social_menu_checkbox',
 		array(
 			'type' => 'checkbox',
-			'section' => 'iv_active_social_links_section',
+			'section' => 'happytapir_social_links_section',
 			'label'    => sprintf(
 				esc_html__('Use the footer social menu, in place of customizer Social Media.', THEME_DOMAIN),
 				esc_url('/nav-menus.php')
@@ -294,7 +294,7 @@ function iv_active_customize_social_icons($wp_customize)
 	);
 
 	// Create an array of our social links for ease of setup.
-	$social_networks = array('Facebook', 'Instagram', 'LinkedIn', 'Twitter', 'YouTube', 'Threads', 'TikTok', 'Pinterest', 'SnapChat');
+	$social_networks = array('Facebook', 'Instagram', 'LinkedIn', 'Twitter', 'YouTube', 'Threads', 'TikTok', 'Pinterest', 'SnapChat', 'Etsy');
 
 	// Loop through our networks to setup our fields.
 	foreach ($social_networks as $network) {
@@ -313,13 +313,13 @@ function iv_active_customize_social_icons($wp_customize)
 			'theme_' . sanitize_key($network) . '_link',
 			array(
 				'label'   => /* translators: the social network name. */ sprintf(esc_html__('%s', THEME_DOMAIN), ucwords($network)),
-				'section' => 'iv_active_social_links_section',
+				'section' => 'happytapir_social_links_section',
 				'type'    => 'text',
 			)
 		);
 	}
 }
-add_action('customize_register', 'iv_active_customize_social_icons');
+add_action('customize_register', 'happytapir_customize_social_icons');
 
 /**
  * Register additional scripts.
@@ -327,71 +327,71 @@ add_action('customize_register', 'iv_active_customize_social_icons');
  * @param WP_Customize_Manager $wp_customize Instance of WP_Customize_Manager.
  */
 
-function iv_active_customize_additional_scripts($wp_customize)
+function happytapir_customize_additional_scripts($wp_customize)
 {
 
 	// Register a Header scripts.
 	$wp_customize->add_setting(
-		'iv_active_header_scripts',
+		'happytapir_header_scripts',
 		array(
 			'default'           => '',
-			'sanitize_callback' => 'iv_active_sanitize_js',
+			'sanitize_callback' => 'happytapir_sanitize_js',
 		)
 	);
 
 	// Create the setting field.
 	$wp_customize->add_control(
-		'iv_active_header_scripts',
+		'happytapir_header_scripts',
 		array(
 			'label'       => esc_html__('Header Scripts', THEME_DOMAIN),
 			'description' => esc_html__('Additional scripts to add to the top of the <head> tag. <script> tags requred.', THEME_DOMAIN),
-			'section'     => 'iv_active_additional_scripts_section',
+			'section'     => 'happytapir_additional_scripts_section',
 			'type'        => 'textarea',
 		)
 	);
 
 	// Register a setting.
 	$wp_customize->add_setting(
-		'iv_active_body_scripts',
+		'happytapir_body_scripts',
 		array(
 			'default'           => '',
-			'sanitize_callback' => 'iv_active_sanitize_js',
+			'sanitize_callback' => 'happytapir_sanitize_js',
 		)
 	);
 
 	// Create the setting field.
 	$wp_customize->add_control(
-		'iv_active_body_scripts',
+		'happytapir_body_scripts',
 		array(
 			'label'       => esc_html__('Body Scripts', THEME_DOMAIN),
 			'description' => esc_html__('Additional scripts to add to after the <body>. <script> tags requred.', THEME_DOMAIN),
-			'section'     => 'iv_active_additional_scripts_section',
+			'section'     => 'happytapir_additional_scripts_section',
 			'type'        => 'textarea',
 		)
 	);
 
 	// Register a setting.
 	$wp_customize->add_setting(
-		'iv_active_footer_scripts',
+		'happytapir_footer_scripts',
 		array(
 			'default'           => '',
-			'sanitize_callback' => 'iv_active_sanitize_js',
+			'sanitize_callback' => 'happytapir_sanitize_js',
 		)
 	);
 
 	// Create the setting field.
 	$wp_customize->add_control(
-		'iv_active_footer_scripts',
+		'happytapir_footer_scripts',
 		array(
 			'label'       => esc_html__('Footer Scripts', THEME_DOMAIN),
 			'description' => esc_html__('Additional scripts to add to the footer, after wp_footer. Basic HTML tags are allowed. <script> tags requred.', THEME_DOMAIN),
-			'section'     => 'iv_active_additional_scripts_section',
+			'section'     => 'happytapir_additional_scripts_section',
 			'type'        => 'textarea',
 		)
 	);
 
 	// Custom sanitization function allowing `<script>` tags
-	function iv_active_sanitize_js($input)
+	function happytapir_sanitize_js($input)
 	{
 		return wp_kses($input, array(
 			'script' => array(), // Allows <script> tags
@@ -402,7 +402,7 @@ function iv_active_customize_additional_scripts($wp_customize)
 		));
 	}
 }
-add_action('customize_register', 'iv_active_customize_additional_scripts');
+add_action('customize_register', 'happytapir_customize_additional_scripts');
 
 /**
  * Sanitizes the select dropdown in the customizer.
@@ -412,7 +412,7 @@ add_action('customize_register', 'iv_active_customize_additional_scripts');
  * @return string
  *
  */
-function iv_active_sanitize_select($input, $setting)
+function happytapir_sanitize_select($input, $setting)
 {
 
 	// Ensure input is a slug.
@@ -431,11 +431,11 @@ function iv_active_sanitize_select($input, $setting)
  * @return boolean True/False whether or not Link is selected.
  *
  */
-function iv_active_customizer_is_header_announcement_url()
+function happytapir_customizer_is_header_announcement_url()
 {
 
 	// Get our button setting.
-	$link_type = get_theme_mod('iv_active_link_type');
+	$link_type = get_theme_mod('happytapir_link_type');
 
 	if ('link' !== $link_type) {
 		return false;
@@ -444,11 +444,11 @@ function iv_active_customizer_is_header_announcement_url()
 	return true;
 }
 
-function iv_active_customizer_is_header_announcement_page()
+function happytapir_customizer_is_header_announcement_page()
 {
 
 	// Get our button setting.
-	$link_type = get_theme_mod('iv_active_link_type');
+	$link_type = get_theme_mod('happytapir_link_type');
 
 	if ('page' !== $link_type) {
 		return false;
@@ -457,11 +457,11 @@ function iv_active_customizer_is_header_announcement_page()
 	return true;
 }
 
-function iv_active_customizer_is_header_announcement_link()
+function happytapir_customizer_is_header_announcement_link()
 {
 
 	// Get our button setting.
-	$link_type = get_theme_mod('iv_active_link_type');
+	$link_type = get_theme_mod('happytapir_link_type');
 
 	if (('link' === $link_type) || ('page' === $link_type)) {
 		return true;

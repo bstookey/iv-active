@@ -5,7 +5,7 @@
  * Adds IP theme custom blocks
  *
  * @package Wordpress
- * @subpackage IV-Active
+ * @subpackage Happy Tapir Press
  * @since  1.0
  * 
  */
@@ -19,11 +19,11 @@ if (!function_exists('acf_register_block_type')) {
  * Init Custom blocks.
  */
 
-add_action('acf/init', 'iv_active_acf_init');
+add_action('acf/init', 'happytapir_acf_init');
 
-function iv_active_acf_init()
+function happytapir_acf_init()
 {
-  $category_default = 'iv-active-blocks';
+  $category_default = 'happytapir-blocks';
   $mode_default = 'preview';
   $acf_block_path = '/template-parts/acf-custom-blocks/';
 
@@ -44,7 +44,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name' => 'accordion-block',
       'title' => __('Accordion Block'),
-      'description' => esc_html__('Pull titles and content from selected post to be displayed as an accordion item.', 'iv-active'),
+      'description' => esc_html__('Pull titles and content from selected post to be displayed as an accordion item.', 'happytapir'),
       'render_template' => $acf_block_path . 'accordion-block.php',
       'category'        => $category_default,
       'icon' => 'menu',
@@ -67,7 +67,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name'      => 'iframe-block',
       'title'      => __('Iframe Block'),
-      'description' => esc_html__('Display an iframe at full element width maintaining proportions', 'iv-active'),
+      'description' => esc_html__('Display an iframe at full element width maintaining proportions', 'happytapir'),
       'render_template'  => $acf_block_path . 'iframe-block.php',
       'category'    => $category_default,
       'icon'      => 'format-image',
@@ -81,7 +81,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name'      => 'header-connect-block',
       'title'      => __('Header Connect'),
-      'description' => esc_html__('Display a block in the header to display phone and email', 'iv-active'),
+      'description' => esc_html__('Display a block in the header to display phone and email', 'happytapir'),
       'render_template'  => $acf_block_path . 'header-connect-block.php',
       'category'    => $category_default,
       'icon'      => 'format-image',
@@ -98,7 +98,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name'      => 'footer-connect-block',
       'title'      => __('Footer Connect'),
-      'description' => esc_html__('Display a block in the footer to display phone and email', 'iv-active'),
+      'description' => esc_html__('Display a block in the footer to display phone and email', 'happytapir'),
       'render_template'  => $acf_block_path . 'footer-connect-block.php',
       'category'    => $category_default,
       'icon'      => 'format-image',
@@ -115,7 +115,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name'      => 'footer-social-block',
       'title'      => __('Footer Social'),
-      'description' => esc_html__('Display a block in the footer to display social links in the customizer', 'iv-active'),
+      'description' => esc_html__('Display a block in the footer to display social links in the customizer', 'happytapir'),
       'render_template'  => $acf_block_path . 'footer-social-block.php',
       'category'    => $category_default,
       'icon'      => 'format-image',
@@ -132,7 +132,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name'      => 'footer-copyright-block',
       'title'      => __('Footer Copyright'),
-      'description' => esc_html__('Display a block in the footer to display copyright date and text', 'iv-active'),
+      'description' => esc_html__('Display a block in the footer to display copyright date and text', 'happytapir'),
       'render_template'  => $acf_block_path . 'footer-copyright-block.php',
       'category'    => $category_default,
       'icon'      => 'format-image',
@@ -145,11 +145,28 @@ function iv_active_acf_init()
       )),
     ));
 
+    // Footer Disclaimer Block
+    // acf_register_block_type(array(
+    //   'name'      => 'footer-disclaimer-block',
+    //   'title'      => __('Footer Disclaimer'),
+    //   'description' => esc_html__('Display a block in the footer to display footer disclaimer text', 'happytapir'),
+    //   'render_template'  => $acf_block_path . 'footer-disclaimer-block.php',
+    //   'category'    => $category_default,
+    //   'icon'      => 'format-image',
+    //   'keywords'    => array('disclaimer', 'footer'),
+    //   'align' => 'full',
+    //   'mode'      => $mode_default,
+    //   'supports' => array_merge($supports, array(
+    //     'align' => true,
+    //     //'inserter' => false, // Prevents block from appearing in the block inserter.
+    //   )),
+    // ));
+
     // Image Carousel Block
     acf_register_block_type(array(
       'name'      => 'iv-carousel-block',
       'title'      => __('IV Carousel'),
-      'description' => esc_html__('Display a block for varius types of carousels', 'iv-active'),
+      'description' => esc_html__('Display a block for varius types of carousels', 'happytapir'),
       'render_template'  => $acf_block_path . 'carousel-multi-block.php',
       'category'    => $category_default,
       'icon'      => 'dashicons-images-alt',
@@ -166,7 +183,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name'      => 'related-posts',
       'title'      => __('Related Posts'),
-      'description' => esc_html__('Selected posts displayed in a block grid with ', 'iv-active'),
+      'description' => esc_html__('Selected posts displayed in a block grid with ', 'happytapir'),
       //'render_template'  => $acf_block_path . 'related-posts.php',
       'render_callback' => 'render_related_posts',
       'category'    => $category_default,
@@ -181,7 +198,7 @@ function iv_active_acf_init()
     acf_register_block_type(array(
       'name'      => 'event-posts',
       'title'      => __('Event Posts'),
-      'description' => esc_html__('Selected events displayed in a block grid with ', 'iv-active'),
+      'description' => esc_html__('Selected events displayed in a block grid with ', 'happytapir'),
       //'render_template'  => $acf_block_path . 'related-posts.php',
       'render_callback' => 'render_event_posts',
       'category'    => $category_default,
@@ -229,27 +246,27 @@ function iv_active_acf_init()
 }
 
 /**
- * Adds a IV Active Block category to the Gutenberg category list.
+ * Adds a Happy Tapir Press Block category to the Gutenberg category list.
  *
  * @param array  $categories The existing categories.
  * @param object $post The current post.
  * @return array The updated array of categories.
  */
-function iv_active_add_block_categories($categories, $post)
+function happytapir_add_block_categories($categories, $post)
 {
-  $iv_active_category = array(
+  $happytapir_category = array(
     array(
-      'slug'  => 'iv-active-blocks',
-      'title' => esc_html__('IV-Active Blocks', 'iv_active'),
+      'slug'  => 'happytapir-blocks',
+      'title' => esc_html__('Happy Tapir Press Blocks', 'happytapir'),
     ),
   );
 
-  // Merge the 'IV-Active Blocks' category at the beginning of the array
-  array_unshift($categories, ...$iv_active_category);
+  // Merge the 'Happy Tapir Press Blocks' category at the beginning of the array
+  array_unshift($categories, ...$happytapir_category);
 
   return $categories;
 }
-add_filter('block_categories_all', 'iv_active_add_block_categories', 10, 2);
+add_filter('block_categories_all', 'happytapir_add_block_categories', 10, 2);
 
 // Related Posts callback
 function render_related_posts($block)
@@ -284,7 +301,7 @@ function render_event_posts($block)
  * @param array $block The block details.
  * @return void Bail if the block has expired.
  */
-function iv_active_acf_block_registration_callback($block)
+function happytapir_acf_block_registration_callback($block)
 {
 
   // Convert the block name into a handy slug.
@@ -304,7 +321,7 @@ function iv_active_acf_block_registration_callback($block)
     return;
   }
 
-  iv_active_display_expired_block_message();
+  happytapir_display_expired_block_message();
 
   // Include our template part.
   if (file_exists(get_theme_file_path('/template-parts/acf-custom-blocks/block-' . $block_slug . '.php'))) {
@@ -318,7 +335,7 @@ function iv_active_acf_block_registration_callback($block)
  * @param array $block The block settings.
  * @return string The class, if one is set.
  */
-function iv_active_get_block_classes($block)
+function happytapir_get_block_classes($block)
 {
 
   if (!$block) {
@@ -326,7 +343,7 @@ function iv_active_get_block_classes($block)
   }
 
   $classes  = '';
-  $classes  = iv_active_get_block_expired_class();
+  $classes  = happytapir_get_block_expired_class();
   $classes .= !empty($block['className']) ? ' ' . esc_attr($block['className']) : '';
 
   return $classes;
@@ -337,7 +354,7 @@ function iv_active_get_block_classes($block)
  *
  * @return string The class, if one is set.
  */
-function iv_active_get_block_expired_class()
+function happytapir_get_block_expired_class()
 {
 
   if (!is_admin()) {
@@ -346,7 +363,7 @@ function iv_active_get_block_expired_class()
 
   $other_options = get_sub_field('other_options') ? get_sub_field('other_options') : get_field('other_options')['other_options'];
 
-  if (iv_active_has_block_expired(
+  if (happytapir_has_block_expired(
     array(
       'start_date' => $other_options['start_date'],
       'end_date'   => $other_options['end_date'],
@@ -361,16 +378,16 @@ function iv_active_get_block_expired_class()
  *
  * @return void Bail if the block isn't expired.
  */
-function iv_active_display_expired_block_message()
+function happytapir_display_expired_block_message()
 {
 
-  if (!iv_active_get_block_expired_class()) {
+  if (!happytapir_get_block_expired_class()) {
     return;
   }
 
 ?>
   <div class="block-expired-message">
-    <span class="block-expired-text"><?php esc_html_e('Your block has expired. Please change or remove the Start and End dates under Other Options to display your block on the frontend.', 'iv_active'); ?></span>
+    <span class="block-expired-text"><?php esc_html_e('Your block has expired. Please change or remove the Start and End dates under Other Options to display your block on the frontend.', 'happytapir'); ?></span>
   </div>
 <?php
 }
@@ -381,7 +398,7 @@ function iv_active_display_expired_block_message()
  * @param array $block The block settings.
  * @return string The class, if one is set.
  */
-function iv_active_get_block_alignment($block)
+function happytapir_get_block_alignment($block)
 {
 
   if (!$block) {
@@ -397,7 +414,7 @@ function iv_active_get_block_alignment($block)
  * @param array $block The block settings.
  * @return string The ID, if one is set.
  */
-function iv_active_get_block_id($block)
+function happytapir_get_block_id($block)
 {
 
   if (!$block) {

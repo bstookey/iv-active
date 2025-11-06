@@ -10,7 +10,7 @@
  *
  * @return bool
  */
-function iv_active_has_array_key($key, $array = array())
+function happytapir_has_array_key($key, $array = array())
 {
 
     if (!is_array($array) || (!$array || !$key)) {

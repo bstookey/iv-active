@@ -13,9 +13,9 @@ const fs = require("fs"); // File system module, if needed for dynamic configura
 const SVGSpritemapPlugin = require("svg-spritemap-webpack-plugin");
 
 // Set variables/
-var themename = "iv-active";
+var themename = "happytapir";
 const themePath = "wp-content/themes/" + themename + "";
-const localURL = "http://localhost:8888/iv-active/";
+const localURL = "http://localhost:8888/happytapirpress/";
 const distPath = "assets";
 const devPath = "src";
 const staticCssPath = devPath + "/scss";
@@ -115,8 +115,8 @@ mix
   .copy("src/images", "assets/images")
   .scripts("src/js/apps/", jsPath + "apps.js")
   .js("src/js/editor/editor.js", jsPath + "editor.js")
-  .js(["src/js/iv-active.js"], jsPath + "iv-active.js")
-  .sass("src/scss/iv-active.scss", cssPath, {
+  .js(["src/js/happytapir.js"], jsPath + "happytapir.js")
+  .sass("src/scss/happytapir.scss", cssPath, {
     implementation: require("sass"),
   })
   .sass("src/scss/admin-style.scss", cssPath, {

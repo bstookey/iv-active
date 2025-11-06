@@ -99,8 +99,8 @@ $colors: (
   aqualight: #d3f9f7,
   grey: #414345,
   darkgrey: #1f488d,
-  mediumgray: #939393,
-  lightgray: #e2e7ea,
+  mediumgrey: #939393,
+  lightgrey: #fafafa,
   lightpink: #f8f1f3,
   lightpurple: #eeeff4,
   neutraldark: #292828,
@@ -112,8 +112,8 @@ $aqua: map.get($colors, aqua);
 $aqualight: map.get($colors, aqualight);
 $grey: map.get($colors, grey);
 $darkgrey: map.get($colors, darkgrey);
-$mediumgray: map.get($colors, mediumgray);
-$lightgray: map.get($colors, lightgray);
+$mediumgrey: map.get($colors, mediumgrey);
+$lightgrey: map.get($colors, lightgrey);
 $lightpink: map.get($colors, lightpink);
 $lightpurple: map.get($colors, lightpurple);
 $neutraldark: map.get($colors, neutraldark);
@@ -123,11 +123,11 @@ $basecolor: $neutraldark;
 // Grayscale Colors
 //-----------------------------------------
 $color-alto: #ddd;
-$color-cod-gray: #111;
-$color-dove-gray: #666;
+$color-cod-grey: #111;
+$color-dove-grey: #666;
 $color-gallery: #eee;
-$color-gray-alt: #929292;
-$color-gray: #808080;
+$color-grey-alt: #929292;
+$color-grey: #808080;
 $color-mineshaft: #333;
 $color-silver-chalice: #aaa;
 $color-silver: #ccc;
@@ -239,7 +239,7 @@ $color-link-focus: $aqua;
 //-----------------------------------------
 
 /// Button background.
-$color-background-button: $color-dove-gray;
+$color-background-button: $color-dove-grey;
 
 /// Button background on hover.
 $color-background-button-hover: $color-mineshaft;
@@ -251,10 +251,10 @@ $color-text-button: $color-white;
 $color-border-input: $color-silver;
 
 /// Input focused color.
-$color-focus-text-input: $color-cod-gray;
+$color-focus-text-input: $color-cod-grey;
 
 /// Input text.
-$color-text-input: $color-dove-gray;
+$color-text-input: $color-dove-grey;
 
 //-----------------------------------------
 // Buttons
@@ -288,7 +288,7 @@ $color-modal-close: $color-white;
 //-----------------------------------------
 
 /// Close Icon Background.
-$color-background-icon-close: $color-cod-gray;
+$color-background-icon-close: $color-cod-grey;
 
 /// Down Arrow Background Color.
 $color-background-down-arrow: $color-link;
@@ -336,7 +336,7 @@ $color-border-block: $color-silver;
 $color-mobile-menu-link: $color-link;
 
 /// Hamburger background.
-$color-background-hamburger: $color-cod-gray;
+$color-background-hamburger: $color-cod-grey;
 
 /// Off-canvas Container Background.
 $color-background-off-canvas: $color-whitesmoke;

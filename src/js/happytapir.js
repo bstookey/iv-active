@@ -5,11 +5,11 @@ $ = window.jQuery;
 // CREATE APP
 var APP = (window.APP = window.APP || {});
 
-var debug = false;
+var debug = true;
 
 function consoleLog(logMessage) {
   if (debug) {
-    consoleLog(logMessage);
+    console.log(logMessage);
   }
 }
 
@@ -116,68 +116,51 @@ APP.Banner = (function () {
 })();
 
 APP.ScrollHeaderFunctions = (function () {
-  let $header;
   const THRESHOLD = 60;
-
-  // Throttling helper
-  const throttle = (func, limit) => {
-    let inThrottle;
-    return function () {
-      const args = arguments;
-      const context = this;
-      if (!inThrottle) {
-        func.apply(context, args);
-        inThrottle = true;
-        setTimeout(() => (inThrottle = false), limit);
-      }
-    };
-  };
+  let lastScrollTop = 0;
+  let ticking = false;
 
   const updateClassesBasedOnScroll = (scrollTop) => {
     if (scrollTop >= THRESHOLD) {
       $("body").addClass("headerReady").removeClass("headerShow");
-    } else if (scrollTop > 0 && scrollTop < THRESHOLD) {
+    } else if (scrollTop > 2 && scrollTop < THRESHOLD) {
       $("body").addClass("headerShow").removeClass("headerReady");
     } else {
       $("body").removeClass("headerReady headerShow");
     }
   };
 
-  const handleScroll = function () {
-    let lastScrollTop = 0;
+  const onScroll = () => {
+    const scrollTop = $(window).scrollTop();
 
-    const onScroll = function () {
-      const scrollTop = $(this).scrollTop();
+    // Prevent unnecessary updates
+    if (scrollTop === lastScrollTop) return;
 
-      // Update classes based on scroll position
-      updateClassesBasedOnScroll(scrollTop);
+    // Update header class logic
+    updateClassesBasedOnScroll(scrollTop);
 
-      // Keep track of the scroll position for detecting scroll direction
-      lastScrollTop = scrollTop;
-    };
-
-    $(window).on("scroll", throttle(onScroll, 100));
+    lastScrollTop = scrollTop;
+    ticking = false;
   };
 
-  const handleLoad = function () {
+  const handleScroll = () => {
+    $(window).on("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    });
+  };
+
+  const handleLoad = () => {
     $(window).on("load", function () {
       const initialScrollTop = $(window).scrollTop();
-
-      // Update classes based on initial scroll position
       updateClassesBasedOnScroll(initialScrollTop);
-
-      // Trigger a slight scroll adjustment (optional, based on original behavior)
-      setTimeout(() => {
-        if (initialScrollTop > 0) {
-          $(window).scrollTop(initialScrollTop + 2);
-        }
-      }, 1000);
     });
   };
 
   const init = function () {
     consoleLog("APP.ScrollHeaderFunctions Initialized");
-    $header = $(".site-header");
     handleScroll();
     handleLoad();
   };
@@ -339,7 +322,7 @@ APP.Form = (function () {
     //consoleLog(loc);
     $.ajax({
       type: "POST",
-      url: "/iv-active/wp-content/themes/iv-active/integrations/add-signup.php",
+      url: "/happytapir/wp-content/themes/happytapir/integrations/add-signup.php",
       data: $("form").serialize(),
       datatype: "json",
       success: function () {
@@ -494,7 +477,7 @@ document.addEventListener("DOMContentLoaded", function () {
   APP.Banner.init();
   APP.ScrollHeaderFunctions.init();
   APP.CanvasMenu.init();
-  APP.LoadMore.init();
-  APP.Form.init();
-  APP.Carousel.init();
+  //APP.LoadMore.init();
+  //APP.Form.init();
+  //APP.Carousel.init();
 });
