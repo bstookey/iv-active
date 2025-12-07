@@ -1,0 +1,31 @@
+@use "sass:meta";
+@use "sass:map";
+
+/// Parse the injected JSON string into a real Sass map.
+@function parse-theme-json($json) {
+  // Dart Sass ≥ 1.49 supports meta.parse-json()
+  @return meta.parse-json($json);
+}
+
+// Build the global theme map
+$theme: parse-theme-json($theme-json);
+
+/// Deep-get helper for nested keys
+@function get($path...) {
+  $value: $theme;
+  @each $key in $path {
+    $value: map.get($value, $key);
+    @if $value == null {
+      @return null;
+    }
+  }
+  @return $value;
+}
+
+/// Convenience shorthands
+@function settings($path...) {
+  @return get("settings", $path...);
+}
+@function styles($path...) {
+  @return get("styles", $path...);
+}

@@ -27,3 +27,22 @@
     color: $value;
   }
 }
+
+// src/scss/global/_colors.scss
+
+// $palette: map.get($theme, "settings", "color", "palette");
+
+// @each $entry in $palette {
+//   $slug: map.get($entry, "slug");
+//   $value: map.get($entry, "color");
+
+//   .test-color-#{$slug},
+//   .test-text-#{$slug},
+//   .test-has-#{$slug}-color {
+//     color: #{$value};
+//   }
+
+//   .test-has-#{$slug}-background-color {
+//     background-color: #{$value};
+//   }
+// }

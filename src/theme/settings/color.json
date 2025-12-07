@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        { "name": "Navy", "slug": "navy", "color": "#001f3f" },
+        { "name": "Aqua", "slug": "aqua", "color": "#00d1d4" },
+        { "name": "Gray 100", "slug": "gray-100", "color": "#f7f7f7" },
+        { "name": "Gray 900", "slug": "gray-900", "color": "#111111" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "spacing": {
+      "defaultSpacingSizes": false,
+      "units": ["px", "em", "rem", "%", "vw", "vh"],
+      "spacingSizes": [
+        { "slug": "xs", "size": "8px" },
+        { "slug": "sm", "size": "16px" },
+        { "slug": "md", "size": "24px" },
+        { "slug": "lg", "size": "40px" },
+        { "slug": "xl", "size": "60px" }
+      ]
+    }
+  }
+}

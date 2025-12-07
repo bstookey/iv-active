@@ -1,0 +1,375 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.wp.org/wp/6.7/theme.json",
+  "title": "WordPress Theme JSON Schema",
+  "description": "Schema definition for theme.json files in WordPress.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "A URI pointing to the JSON schema definition"
+    },
+    "version": {
+      "type": "integer",
+      "description": "Version of the theme.json format",
+      "enum": [1, 2, 3]
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title for the theme"
+    },
+    "settings": {
+      "$ref": "#/definitions/settings"
+    },
+    "styles": {
+      "$ref": "#/definitions/styles"
+    },
+    "templateParts": {
+      "type": "array",
+      "description": "List of template parts defined in the theme",
+      "items": {
+        "$ref": "#/definitions/templatePart"
+      }
+    },
+    "customTemplates": {
+      "type": "array",
+      "description": "List of custom templates provided by the theme",
+      "items": {
+        "$ref": "#/definitions/customTemplate"
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "description": "List of block patterns included by the theme",
+      "items": {
+        "$ref": "#/definitions/pattern"
+      }
+    }
+  },
+  "required": ["version"],
+  "additionalProperties": false,
+  "definitions": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "appearanceTools": {
+          "type": "boolean",
+          "description": "Enable advanced appearance controls in the editor"
+        },
+        "custom": {
+          "type": "object",
+          "description": "Custom user-defined data"
+        },
+        "color": {
+          "$ref": "#/definitions/settings_color"
+        },
+        "spacing": {
+          "$ref": "#/definitions/settings_spacing"
+        },
+        "typography": {
+          "$ref": "#/definitions/settings_typography"
+        },
+        "layout": {
+          "$ref": "#/definitions/settings_layout"
+        },
+        "border": {
+          "$ref": "#/definitions/settings_border"
+        },
+        "shadow": {
+          "$ref": "#/definitions/settings_shadow"
+        },
+        "blocks": {
+          "$ref": "#/definitions/settings_blocks"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "settings_color": {
+      "type": "object",
+      "properties": {
+        "defaultPalette": { "type": "boolean" },
+        "defaultDuotone": { "type": "boolean" },
+        "defaultGradients": { "type": "boolean" },
+        "palette": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/color_palette_item" }
+        },
+        "gradients": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/color_gradient_item" }
+        },
+        "duotone": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/color_duotone_item" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "color_palette_item": {
+      "type": "object",
+      "required": ["slug", "color"],
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "color": { "type": "string" }
+      }
+    },
+
+    "color_gradient_item": {
+      "type": "object",
+      "required": ["slug", "gradient"],
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "gradient": { "type": "string" }
+      }
+    },
+
+    "color_duotone_item": {
+      "type": "object",
+      "required": ["slug", "colors"],
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "colors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+
+    "settings_spacing": {
+      "type": "object",
+      "properties": {
+        "defaultSpacingSizes": { "type": "boolean" },
+        "units": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "spacingSizes": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/spacing_size" }
+        },
+        "blockGap": { "type": ["string", "boolean"] }
+      },
+      "additionalProperties": false
+    },
+
+    "spacing_size": {
+      "type": "object",
+      "required": ["slug", "size"],
+      "properties": {
+        "slug": { "type": "string" },
+        "size": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+
+    "settings_typography": {
+      "type": "object",
+      "properties": {
+        "fontFamilies": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/typography_font_family" }
+        },
+        "fontSizes": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/typography_font_size" }
+        },
+        "customLineHeight": { "type": "boolean" },
+        "dropCap": { "type": "boolean" },
+        "fontWeight": { "type": "boolean" },
+        "letterSpacing": { "type": "boolean" },
+        "textDecoration": { "type": "boolean" },
+        "textTransform": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+
+    "typography_font_family": {
+      "type": "object",
+      "required": ["slug", "fontFamily"],
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "fontFamily": { "type": "string" }
+      }
+    },
+
+    "typography_font_size": {
+      "type": "object",
+      "required": ["slug", "size"],
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "size": { "type": "string" }
+      }
+    },
+
+    "settings_layout": {
+      "type": "object",
+      "properties": {
+        "contentSize": { "type": "string" },
+        "wideSize": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "settings_border": {
+      "type": "object",
+      "properties": {
+        "color": { "type": ["string", "boolean"] },
+        "radius": { "type": ["string", "boolean"] },
+        "style": { "type": ["string", "boolean"] },
+        "width": { "type": ["string", "boolean"] }
+      },
+      "additionalProperties": false
+    },
+
+    "settings_shadow": {
+      "type": "object",
+      "properties": {
+        "presets": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/shadow_preset" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "shadow_preset": {
+      "type": "object",
+      "required": ["slug", "shadow"],
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "shadow": { "type": "string" }
+      }
+    },
+
+    "settings_blocks": {
+      "type": "object",
+      "description": "Per-block settings",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+$": {
+          "$ref": "#/definitions/settings"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "styles": {
+      "type": "object",
+      "properties": {
+        "color": { "$ref": "#/definitions/styles_color" },
+        "spacing": { "$ref": "#/definitions/styles_spacing" },
+        "typography": { "$ref": "#/definitions/styles_typography" },
+        "border": { "$ref": "#/definitions/styles_border" },
+        "shadow": { "$ref": "#/definitions/styles_shadow" },
+        "blocks": { "$ref": "#/definitions/styles_blocks" }
+      },
+      "additionalProperties": false
+    },
+
+    "styles_color": {
+      "type": "object",
+      "properties": {
+        "background": { "type": "string" },
+        "text": { "type": "string" },
+        "link": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "styles_spacing": {
+      "type": "object",
+      "properties": {
+        "blockGap": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "styles_typography": {
+      "type": "object",
+      "properties": {
+        "fontFamily": { "type": "string" },
+        "fontSize": { "type": "string" },
+        "fontStyle": { "type": "string" },
+        "fontWeight": { "type": "string" },
+        "letterSpacing": { "type": "string" },
+        "lineHeight": { "type": "string" },
+        "textDecoration": { "type": "string" },
+        "textTransform": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "styles_border": {
+      "type": "object",
+      "properties": {
+        "radius": { "type": "string" },
+        "width": { "type": "string" },
+        "style": { "type": "string" },
+        "color": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "styles_shadow": {
+      "type": "object",
+      "properties": {
+        "shadow": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "styles_blocks": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+$": {
+          "$ref": "#/definitions/styles"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "templatePart": {
+      "type": "object",
+      "required": ["name", "title", "area"],
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "area": { "type": "string" },
+        "icon": { "type": "string" }
+      }
+    },
+
+    "customTemplate": {
+      "type": "object",
+      "required": ["name", "title"],
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "postTypes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+
+    "pattern": {
+      "type": "object",
+      "required": ["name", "title"],
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "viewportWidth": { "type": "integer" },
+        "content": { "type": "string" }
+      }
+    }
+  }
+}

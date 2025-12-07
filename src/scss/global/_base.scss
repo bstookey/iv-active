@@ -13,8 +13,11 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 
+  // color: theme.get("styles", "color", "text");
+  // padding: theme.settings("spacing", "blockGap");
+
   &.mobile-menu-open {
     position: fixed;
-    width: 100%;
+    width: 90%;
   }
 }

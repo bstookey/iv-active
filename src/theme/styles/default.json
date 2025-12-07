@@ -1,0 +1,12 @@
+{
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--gray-100)",
+      "text": "var(--wp--preset--color--gray-900)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--montserrat)",
+      "fontSize": "var(--wp--preset--font-size--base)"
+    }
+  }
+}

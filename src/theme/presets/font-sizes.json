@@ -1,0 +1,12 @@
+{
+  "settings": {
+    "typography": {
+      "fontSizes": [
+        { "name": "Small", "slug": "small", "size": "14px" },
+        { "name": "Base", "slug": "base", "size": "16px" },
+        { "name": "Large", "slug": "large", "size": "20px" },
+        { "name": "XL", "slug": "xl", "size": "28px" }
+      ]
+    }
+  }
+}
